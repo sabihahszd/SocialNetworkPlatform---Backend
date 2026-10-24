@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    internal class Community
+    public class Community : BaseEntity
     {
         public string PublicId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;

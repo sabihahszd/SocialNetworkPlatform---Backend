@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    internal class AppUser : BaseEntity
+    public class AppUser : BaseEntity
     {
         public string PublicId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
