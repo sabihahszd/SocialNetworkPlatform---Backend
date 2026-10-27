@@ -19,5 +19,7 @@ namespace Domain.Entities
         public AppUser Owner { get; set; } = null!;
         public int MemberCount { get; set; }
 
+        public ICollection<CommunityMember> Members { get; set; } = new List<CommunityMember>();
+        public ICollection<Post> Posts { get; set; } = new List<Post>();
     }
 }
