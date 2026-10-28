@@ -15,6 +15,11 @@ namespace Repository.Data
 
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Bookmark> Bookmarks { get; set; }
+        public DbSet<PostLike> Likes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Community> Communities { get; set; }
+        public DbSet<Repost> Reposts { get; set; }
 
     }
 }
