@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,14 @@ namespace Domain.Entities
         public string Location { get; set; } = string.Empty;
         public string PhotoUrl { get; set; } = string.Empty;
         public string BannerUrl { get; set; } = string.Empty;
+        public UserRole Role { get; set; } = UserRole.Member;
+        public string Tone { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+
+        public UserSettings? Settings { get; set; }
+        public ICollection<Post> Posts { get; set; } = new List<Post>();
+        public ICollection<CommunityMember> CommunityMemberships { get; set; } = new List<CommunityMember>();
+        public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }
+
