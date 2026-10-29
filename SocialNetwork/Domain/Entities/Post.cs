@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace Domain.Entities
         public string Text { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
         public string VideoUrl { get; set; } = string.Empty;
+        public PostPrivacy Privacy { get; set; } = PostPrivacy.Public;
+
 
         public ICollection<PostCommunity> PostCommunities { get; set; } = new List<PostCommunity>();
         public ICollection<PostLike> Likes { get; set; } = new List<PostLike>();

@@ -18,5 +18,7 @@ namespace Domain.Entities
         public Comment? Parent { get; set; }
         public string Text { get; set; } = string.Empty;
         public ICollection<Comment> Replies { get; set; } = new List<Comment>();
+
+
     }
 }

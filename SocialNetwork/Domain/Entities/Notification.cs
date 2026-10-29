@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace Domain.Entities
         public string? PostPublicId { get; set; }
         public string Detail { get; set; } = string.Empty;
         public bool IsRead { get; set; }
+        public NotificationType Type { get; set; }
+        public RequestStatus Status { get; set; } = RequestStatus.Done;
     }
 }
