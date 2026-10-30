@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\usersettings\\usersettingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\usersettings\\usersettingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\sitesettings\\updatesitesettingsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\sitesettings\\updatesitesettingsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -155,32 +159,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserSettingsDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\UserSettings\\UserSettingsDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\UserSettings\\UserSettingsDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\UserSettings\\UserSettingsDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\UserSettings\\UserSettingsDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T21:19:12.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UpdateSiteSettingsRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\SiteSettings\\UpdateSiteSettingsRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\SiteSettings\\UpdateSiteSettingsRequest.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\SiteSettings\\UpdateSiteSettingsRequest.cs",
               "RelativeToolTip": "Service\\Helpers\\DTOs\\SiteSettings\\UpdateSiteSettingsRequest.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-30T21:16:58.603Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SiteSettingsDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\SiteSettings\\SiteSettingsDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\SiteSettings\\SiteSettingsDto.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\SiteSettings\\SiteSettingsDto.cs",
               "RelativeToolTip": "Service\\Helpers\\DTOs\\SiteSettings\\SiteSettingsDto.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBQAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-30T21:15:55.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UpdateUserRoleRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
@@ -192,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "CommentRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
@@ -204,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "FriendRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
@@ -216,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FriendshipDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
@@ -228,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "FollowDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
@@ -240,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "UpdateTextRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Common\\UpdateTextRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Common\\UpdateTextRequest.cs",
@@ -252,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "AdminStatsDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Common\\AdminStatsDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Common\\AdminStatsDto.cs",
@@ -264,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ChatThreadDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatThread\\ChatThreadDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatThread\\ChatThreadDto.cs",
@@ -276,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "SendMessageRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
@@ -288,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "DirectMessageRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageRequest.cs",
@@ -300,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "DirectMessageDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageDto.cs",
@@ -312,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ChatMessageDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\ChatMessageDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\ChatMessageDto.cs",
@@ -324,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "AppUserService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\AppUserService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\AppUserService.cs",
@@ -336,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "SiteSettings.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\SiteSettings.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\SiteSettings.cs",
@@ -348,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\Notification.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Notification.cs",
@@ -360,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Report.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\Report.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Report.cs",
@@ -372,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "ReportRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\ReportRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\ReportRepository.cs",
@@ -384,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "INotificationRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\INotificationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\INotificationRepository.cs",
@@ -396,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Program.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Program.cs",
@@ -408,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Repository\\Data\\AppDbContext.cs",
@@ -420,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CreateReportRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Report\\CreateReportRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Report\\CreateReportRequest.cs",
@@ -432,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReportDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Report\\ReportDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Report\\ReportDto.cs",
@@ -444,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "NotificationDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Notification\\NotificationDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Notification\\NotificationDto.cs",
@@ -456,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RepostDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
@@ -464,12 +481,11 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:29:57.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-30T14:29:57.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PostLikeDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
@@ -481,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CreatePostRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
@@ -493,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PostDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\PostDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\PostDto.cs",
