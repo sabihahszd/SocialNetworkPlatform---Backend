@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
@@ -31,17 +32,23 @@ namespace Repository.Repositories
 
         public Task<List<Report>> GetOpenAsync(int? reporterId = null)
         {
-            throw new NotImplementedException();
-        }
+            var reports = DbSet.AsNoTracking()
+                            .Include(report => report.Post).ThenInclude(post => post.Author)
+                            .Include(report => report.Reporter)
+                            .Where(report => report.Status == ReportStatus.Open);
+            if (reporterId is not null) reports = reports.Where(report => report.ReporterId == reporterId);
+            return reports.OrderByDescending(report => report.CreatedAt).ToListAsync();
+        }        
 
         public Task<List<Report>> GetOpenByPostIdAsync(int postId)
         {
-            throw new NotImplementedException();
+            return DbSet.Where(report => report.PostId == postId && report.Status == ReportStatus.Open).ToListAsync();
         }
 
         public Task<Report?> GetOpenByPublicIdAsync(string publicId)
         {
-            return DbSet.Where(report => report.PostId == postId && report.Status == ReportStatus.Open).ToListAsync();
+           return DbSet.Include(report => report.Post)
+                           .FirstOrDefaultAsync(report => report.PublicId == publicId && report.Status == ReportStatus.Open);
         }
 
         public Task<bool> HasOpenAsync(int postId, int reporterId)

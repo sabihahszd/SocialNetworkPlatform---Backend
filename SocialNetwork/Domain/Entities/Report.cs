@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Domain.Entities
         public int ReporterId { get; set; }
         public AppUser Reporter { get; set; } = null!;
         public string Reason { get; set; } = string.Empty;
+        public ReportStatus Status { get; set; } = ReportStatus.Open;
     }
 }

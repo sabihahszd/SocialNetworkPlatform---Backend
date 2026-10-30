@@ -11,6 +11,6 @@ namespace Repository.Repositories.Interfaces
     {
         Task<Notification?> GetByPublicIdAsync(string publicId, int recipientId);
         Task<List<Notification>> GetForRecipientAsync(int recipientId);
-        Task<List<Notification>> GetUnreadAsync(int recipientId)
+        Task<List<Notification>> GetUnreadAsync(int recipientId);
     }
 }
