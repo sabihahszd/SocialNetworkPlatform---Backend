@@ -3,12 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\report\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\report\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\post\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\post\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\friendship\\friendshipdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\friendship\\friendshipdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\friendrequest\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\friendrequest\\friendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\follow\\followdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\follow\\followdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\appuser\\updateuserrolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\appuser\\updateuserrolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\directmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\directmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\directmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\directmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatthread\\chatthreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatthread\\chatthreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\comment\\commentrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\comment\\commentrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\common\\updatetextrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,32 +79,12 @@
       "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\common\\adminstatsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatthread\\chatthreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatthread\\chatthreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\directmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\directmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\directmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\directmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\chatmessage\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\chatmessage\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\services\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\domain\\entities\\sitesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\sitesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\notification\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E528BBC3-1C26-8C35-F682-23718816ADCD}|Domain\\Domain.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\domain\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,30 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\report\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\report\\reportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\post\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\post\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,8 +118,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 29,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpdateUserRoleRequest.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\AppUser\\UpdateUserRoleRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T20:50:42.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CommentRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\Comment\\CommentRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T20:50:06.603Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
@@ -130,20 +172,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "FriendRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\FriendRequest\\FriendRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T20:49:31.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FriendshipDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\Friendship\\FriendshipDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T20:48:13.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "FollowDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Follow\\FollowDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-30T20:43:51.636Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 17,
               "Title": "UpdateTextRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Common\\UpdateTextRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Common\\UpdateTextRequest.cs",
@@ -156,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "AdminStatsDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Common\\AdminStatsDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Common\\AdminStatsDto.cs",
@@ -164,11 +232,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Common\\AdminStatsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:36:16.952Z"
+              "WhenOpened": "2026-10-30T20:36:16.952Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "ChatThreadDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatThread\\ChatThreadDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatThread\\ChatThreadDto.cs",
@@ -176,23 +245,25 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\ChatThread\\ChatThreadDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:34:08.307Z"
+              "WhenOpened": "2026-10-30T20:34:08.307Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "SendMessageRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
               "RelativeToolTip": "Service\\Helpers\\DTOs\\ChatMessage\\SendMessageRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:31:27.402Z"
+              "WhenOpened": "2026-10-30T20:31:27.402Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "DirectMessageRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageRequest.cs",
@@ -200,11 +271,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:31:13.007Z"
+              "WhenOpened": "2026-10-30T20:31:13.007Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "DirectMessageDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageDto.cs",
@@ -212,11 +284,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\ChatMessage\\DirectMessageDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:29:42.512Z"
+              "WhenOpened": "2026-10-30T20:29:42.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "ChatMessageDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\ChatMessage\\ChatMessageDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\ChatMessage\\ChatMessageDto.cs",
@@ -224,11 +297,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\ChatMessage\\ChatMessageDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:29:16.817Z"
+              "WhenOpened": "2026-10-30T20:29:16.817Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 19,
               "Title": "AppUserService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\AppUserService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\AppUserService.cs",
@@ -236,12 +310,11 @@
               "RelativeToolTip": "Service\\Services\\AppUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T20:26:39.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-30T20:26:39.907Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "SiteSettings.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\SiteSettings.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\SiteSettings.cs",
@@ -253,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\Notification.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Notification.cs",
@@ -265,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "Report.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Entities\\Report.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Report.cs",
@@ -277,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "ReportRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\ReportRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\ReportRepository.cs",
@@ -289,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "INotificationRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\INotificationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\INotificationRepository.cs",
@@ -301,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Program.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Program.cs",
@@ -313,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Repository\\Data\\AppDbContext.cs",
@@ -325,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "CreateReportRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Report\\CreateReportRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Report\\CreateReportRequest.cs",
@@ -333,11 +406,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Report\\CreateReportRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:36:32.368Z"
+              "WhenOpened": "2026-10-30T14:36:32.368Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 1,
               "Title": "ReportDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Report\\ReportDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Report\\ReportDto.cs",
@@ -345,11 +419,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Report\\ReportDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:35:47.171Z"
+              "WhenOpened": "2026-10-30T14:35:47.171Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "NotificationDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Notification\\NotificationDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Notification\\NotificationDto.cs",
@@ -357,11 +432,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Notification\\NotificationDto.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:32:57.893Z"
+              "WhenOpened": "2026-10-30T14:32:57.893Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 0,
               "Title": "RepostDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
@@ -369,11 +445,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:29:57.313Z"
+              "WhenOpened": "2026-10-30T14:29:57.313Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 3,
               "Title": "PostLikeDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
@@ -381,11 +458,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:28:02.411Z"
+              "WhenOpened": "2026-10-30T14:28:02.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 5,
               "Title": "CreatePostRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
@@ -393,11 +471,12 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:25:36.755Z"
+              "WhenOpened": "2026-10-30T14:25:36.755Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 4,
               "Title": "PostDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\PostDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\PostDto.cs",
@@ -405,7 +484,8 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Post\\PostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:24:04.964Z"
+              "WhenOpened": "2026-10-30T14:24:04.964Z",
+              "EditorCaption": ""
             }
           ]
         }

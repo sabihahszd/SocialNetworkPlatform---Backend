@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.DTOs.ChatMessage
 {
-    internal class SendMessageRequest
+    public class SendMessageRequest
     {
         public string Text { get; set; } = string.Empty;
 

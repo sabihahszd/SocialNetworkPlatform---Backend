@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.DTOs.Comment
 {
-    internal class CommentRequestDto
+    public class CommentRequestDto
     {
         public string Text { get; set; } = string.Empty;
         public string? ParentId { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.DTOs.AppUser
 {
-    internal class UpdateUserRoleRequest
+    public class UpdateUserRoleRequest
     {
         public string Role { get; set; } = "member";
 

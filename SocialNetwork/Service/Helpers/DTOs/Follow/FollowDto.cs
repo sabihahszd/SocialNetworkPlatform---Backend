@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Service.Helpers.DTOs.Follow
 {
-    internal class FollowDto
+    public class FollowDto
     {
         public string FollowerId { get; set; } = string.Empty;
         public string FollowingId { get; set; } = string.Empty;
