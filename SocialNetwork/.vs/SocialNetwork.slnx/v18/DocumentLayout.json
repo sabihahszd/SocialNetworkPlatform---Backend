@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\repost\\repostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\postlike\\postlikedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}|Service\\Service.csproj|solutionrelative:service\\helpers\\dtos\\post\\createpostrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,6 +55,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RepostDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\Repost\\RepostDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T14:29:57.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PostLikeDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
+              "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
+              "RelativeToolTip": "Service\\Helpers\\DTOs\\PostLike\\PostLikeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T14:28:02.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CreatePostRequest.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\CreatePostRequest.cs",
@@ -59,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PostDto.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Helpers\\DTOs\\Post\\PostDto.cs",
               "RelativeDocumentMoniker": "Service\\Helpers\\DTOs\\Post\\PostDto.cs",
@@ -67,8 +101,7 @@
               "RelativeToolTip": "Service\\Helpers\\DTOs\\Post\\PostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-30T14:24:04.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-30T14:24:04.964Z"
             }
           ]
         }
