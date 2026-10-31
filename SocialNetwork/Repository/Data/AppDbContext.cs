@@ -16,6 +16,22 @@ namespace Repository.Data
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Bookmark> Bookmarks { get; set; }
+        public DbSet<Repost> Reposts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Community> Communities { get; set; }
+        public DbSet<CommunityMember> CommunityMembers { get; set; }
+        public DbSet<PostCommunity> PostCommunities { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<Follow> Follows { get; set; }
+        public DbSet<Friendship> Friendships { get; set; }
+        public DbSet<FriendRequest> FriendRequests { get; set; }
+        public DbSet<ChatThread> ChatThreads { get; set; }
+        public DbSet<ChatMessage> ChatMessages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserSettings> UserSettings { get; set; }
+        public DbSet<SiteSettings> SiteSettings { get; set; }
+      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
