@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories.Interfaces
 {
-    internal interface ICommentRepository : IBaseRepository<Comment>
+    public interface ICommentRepository : IBaseRepository<Comment>
     {
         Task<Comment?> GetByPublicIdAsync(string publicId);
         Task<Comment?> GetTrackedByPublicIdAsync(string publicId);
