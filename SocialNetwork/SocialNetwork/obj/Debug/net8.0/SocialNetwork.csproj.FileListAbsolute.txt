@@ -144,10 +144,11 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialN
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNe.364C5A64.Up2Date
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.dll
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\refint\SocialNetwork.dll
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.pdb
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.genruntimeconfig.cache
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\ref\SocialNetwork.dll
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
