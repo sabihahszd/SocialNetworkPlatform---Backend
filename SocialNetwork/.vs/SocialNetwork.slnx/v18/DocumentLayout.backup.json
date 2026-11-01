@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\repository\\repositories\\friendrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\friendrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\repository\\repositories\\interfaces\\ifriendrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\interfaces\\ifriendrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\repository\\repositories\\followrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE8F3387-4CAB-64ED-80E3-18319C5DCD81}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\followrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -131,6 +139,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FriendRequestRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\FriendRequestRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\FriendRequestRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\FriendRequestRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\FriendRequestRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T14:50:40.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IFriendRequestRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\IFriendRequestRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\IFriendRequestRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\IFriendRequestRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\Interfaces\\IFriendRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T14:46:20.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FollowRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\FollowRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\FollowRepository.cs",
@@ -143,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "IFollowRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\IFollowRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\IFollowRepository.cs",
@@ -151,12 +185,11 @@
               "RelativeToolTip": "Repository\\Repositories\\Interfaces\\IFollowRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-01T14:38:11.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-01T14:38:11.486Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ReportService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\ReportService.cs",
@@ -164,12 +197,11 @@
               "RelativeToolTip": "Service\\Services\\ReportService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T21:16:49.206Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T21:16:49.206Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IReportService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IReportService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IReportService.cs",
@@ -177,12 +209,11 @@
               "RelativeToolTip": "Service\\Services\\Interfaces\\IReportService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAA1wBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T21:16:39.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T21:16:39.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "RepostService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\RepostService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\RepostService.cs",
@@ -194,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IRepostService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IRepostService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IRepostService.cs",
@@ -206,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "PostLikeService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\PostLikeService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\PostLikeService.cs",
@@ -218,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "IPostLikeService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IPostLikeService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IPostLikeService.cs",
@@ -230,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PostService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\PostService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\PostService.cs",
@@ -242,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "IPostService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IPostService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IPostService.cs",
@@ -254,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "PostCommunityService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\PostCommunityService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\PostCommunityService.cs",
@@ -266,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "IPostCommunityService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IPostCommunityService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IPostCommunityService.cs",
@@ -278,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "NotificationService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\NotificationService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\NotificationService.cs",
@@ -290,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "INotificationService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\INotificationService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\INotificationService.cs",
@@ -302,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "CommunityService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\CommunityService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\CommunityService.cs",
@@ -314,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "ICommunityService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\ICommunityService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ICommunityService.cs",
@@ -326,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "CommentService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\CommentService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\CommentService.cs",
@@ -338,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ICommentService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\ICommentService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ICommentService.cs",
@@ -350,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "BookmarkService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\BookmarkService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\BookmarkService.cs",
@@ -362,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "IBookmarkService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\Interfaces\\IBookmarkService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IBookmarkService.cs",
@@ -374,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "AppUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\AppUserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\AppUserRepository.cs",
@@ -386,7 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "IAppUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Repository\\Repositories\\Interfaces\\IAppUserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\IAppUserRepository.cs",
@@ -398,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "AppUserService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Service\\Services\\AppUserService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\AppUserService.cs",

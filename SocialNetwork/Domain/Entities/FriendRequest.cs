@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace Domain.Entities
         public AppUser FromUser { get; set; } = null!;
         public int ToUserId { get; set; }
         public AppUser ToUser { get; set; } = null!;
+        public RequestStatus Status { get; set; }
     }
 }
