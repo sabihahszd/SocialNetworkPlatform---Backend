@@ -44,6 +44,8 @@ builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IFriendRequestRepository, FriendRequestRepository>();
 builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
