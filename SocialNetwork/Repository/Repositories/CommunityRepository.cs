@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    internal class CommunityRepository : BaseRepository<Community>, ICommunityRepository
+    public class CommunityRepository : BaseRepository<Community>, ICommunityRepository
     {
         public CommunityRepository(AppDbContext context) : base(context)
         {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    internal class BookmarkRepository : BaseRepository<Bookmark>, IBookmarkRepository
+    public class BookmarkRepository : BaseRepository<Bookmark>, IBookmarkRepository
     {
         public BookmarkRepository(AppDbContext context) : base(context)
         {

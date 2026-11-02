@@ -8,7 +8,7 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\AppData\\Local\\Temp\\cursor-sandbox-cache\\582540c9f60d1bc9381e09fcf2818988\\nuget": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -17,7 +17,7 @@
       "projectUniqueName": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Domain.csproj",
       "projectName": "Domain",
       "projectPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\user\\AppData\\Local\\Temp\\cursor-sandbox-cache\\582540c9f60d1bc9381e09fcf2818988\\nuget",
       "outputPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
