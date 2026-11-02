@@ -1,0 +1,112 @@
+[
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Chats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "GetById",
+    "RelativePath": "api/Chats/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "Send",
+    "RelativePath": "api/Chats/{id}/messages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Service.Helpers.DTOs.ChatMessage.SendMessageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "Edit",
+    "RelativePath": "api/Chats/{id}/messages/{messageId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "messageId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Service.Helpers.DTOs.Common.UpdateTextRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "Delete",
+    "RelativePath": "api/Chats/{id}/messages/{messageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "messageId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "SendDirect",
+    "RelativePath": "api/Chats/direct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Service.Helpers.DTOs.ChatMessage.DirectMessageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
