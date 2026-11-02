@@ -151,4 +151,3 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialN
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.genruntimeconfig.cache
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\ref\SocialNetwork.dll
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
