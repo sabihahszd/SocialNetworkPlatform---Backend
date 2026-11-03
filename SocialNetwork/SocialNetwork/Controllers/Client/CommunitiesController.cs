@@ -2,9 +2,11 @@
 using System.Text.RegularExpressions;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Service.Helpers.DTOs.Community;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -13,27 +15,27 @@ namespace SocialNetwork.Controllers.Client
     [ApiController]
     public partial class CommunitiesController : ControllerBase
     {
-        private const int MaxNameLength = 32;
-        private const int MaxDescriptionLength = 120;
-
         private readonly ICommunityService _communityService;
         private readonly ICommunityMemberService _communityMemberService;
         private readonly IUserSettingsService _userSettingsService;
         private readonly INotificationService _notificationService;
         private readonly IAppUserService _userService;
+        private readonly IValidator<CreateCommunityRequest> _communityValidator;
 
         public CommunitiesController(
             ICommunityService communityService,
             ICommunityMemberService communityMemberService,
             IUserSettingsService userSettingsService,
             INotificationService notificationService,
-            IAppUserService userService)
+            IAppUserService userService,
+            IValidator<CreateCommunityRequest> communityValidator)
         {
             _communityService = communityService;
             _communityMemberService = communityMemberService;
             _userSettingsService = userSettingsService;
             _notificationService = notificationService;
             _userService = userService;
+            _communityValidator = communityValidator;
         }
 
         [HttpGet]
@@ -92,11 +94,12 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeName(request.Name, out var name, out var error))
+            var error = await _communityValidator.FirstErrorAsync(request, CreateCommunityRequestValidator.Member);
+            if (error is not null)
                 return BadRequest(new { message = error });
 
-            if (!TryNormalizeDescription(request.Description, out var description, out error))
-                return BadRequest(new { message = error });
+            var name = request.Name.Trim();
+            var description = request.Description?.Trim() ?? string.Empty;
 
             var community = new Community
             {
@@ -231,38 +234,6 @@ namespace SocialNetwork.Controllers.Client
                 return null;
 
             return user;
-        }
-
-        private static bool TryNormalizeName(string? value, out string name, out string error)
-        {
-            name = value?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                error = "Give the community a name.";
-                return false;
-            }
-
-            if (name.Length > MaxNameLength)
-            {
-                error = $"Community names can be up to {MaxNameLength} characters.";
-                return false;
-            }
-
-            error = string.Empty;
-            return true;
-        }
-
-        private static bool TryNormalizeDescription(string? value, out string description, out string error)
-        {
-            description = value?.Trim() ?? string.Empty;
-            if (description.Length > MaxDescriptionLength)
-            {
-                error = $"Descriptions can be up to {MaxDescriptionLength} characters.";
-                return false;
-            }
-
-            error = string.Empty;
-            return true;
         }
 
         private static string NormalizeEmoji(string? emoji, string name)

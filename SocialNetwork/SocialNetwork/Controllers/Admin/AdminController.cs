@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using System.Text.RegularExpressions;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Service.Helpers.DTOs.AppUser;
@@ -10,6 +10,7 @@ using Service.Helpers.DTOs.Community;
 using Service.Helpers.DTOs.Post;
 using Service.Helpers.DTOs.Report;
 using Service.Helpers.DTOs.SiteSettings;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Admin
@@ -18,27 +19,33 @@ namespace SocialNetwork.Controllers.Admin
     [ApiController]
     public partial class AdminController : ControllerBase
     {
-        private const int MaxCommunityNameLength = 80;
-        private const int MaxCommunityDescriptionLength = 240;
-
         private readonly IAppUserService _userService;
         private readonly IPostService _postService;
         private readonly IReportService _reportService;
         private readonly ICommunityService _communityService;
         private readonly ISiteSettingsService _siteSettingsService;
+        private readonly IValidator<UpdateUserRoleRequest> _roleValidator;
+        private readonly IValidator<CreateCommunityRequest> _communityValidator;
+        private readonly IValidator<UpdateSiteSettingsRequest> _siteValidator;
 
         public AdminController(
             IAppUserService userService,
             IPostService postService,
             IReportService reportService,
             ICommunityService communityService,
-            ISiteSettingsService siteSettingsService)
+            ISiteSettingsService siteSettingsService,
+            IValidator<UpdateUserRoleRequest> roleValidator,
+            IValidator<CreateCommunityRequest> communityValidator,
+            IValidator<UpdateSiteSettingsRequest> siteValidator)
         {
             _userService = userService;
             _postService = postService;
             _reportService = reportService;
             _communityService = communityService;
             _siteSettingsService = siteSettingsService;
+            _roleValidator = roleValidator;
+            _communityValidator = communityValidator;
+            _siteValidator = siteValidator;
         }
 
         [HttpGet("stats")]
@@ -100,8 +107,11 @@ namespace SocialNetwork.Controllers.Admin
             if (target.Role == UserRole.SuperAdmin || target.Id == currentUser.Id)
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account's role cannot be changed here." });
 
-            if (!TryParseRole(request.Role, out var role))
-                return BadRequest(new { message = "Choose member or admin." });
+            var error = await _roleValidator.FirstErrorAsync(request);
+            if (error is not null)
+                return BadRequest(new { message = error });
+
+            var role = ParseRole(request.Role);
 
             target.Role = role;
             await _userService.EditAsync(target);
@@ -264,8 +274,11 @@ namespace SocialNetwork.Controllers.Admin
             if (community is null || community.IsDeleted)
                 return NotFound();
 
-            if (!TryApplyCommunity(request, community, out var error))
+            var error = await _communityValidator.FirstErrorAsync(request, CreateCommunityRequestValidator.Admin);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            ApplyCommunity(request, community);
 
             await _communityService.EditAsync(community);
             var detailed = await _communityService.GetDetailedByPublicIdAsync(community.PublicId);
@@ -305,9 +318,12 @@ namespace SocialNetwork.Controllers.Admin
             if (access.Error is not null)
                 return access.Error;
 
-            var settings = await EnsureSiteSettingsAsync();
-            if (!TryApplySite(settings, request, out var error))
+            var error = await _siteValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var settings = await EnsureSiteSettingsAsync();
+            ApplySite(settings, request);
 
             await _siteSettingsService.EditAsync(settings);
             return Ok(ToSiteDto(settings));
@@ -378,20 +394,9 @@ namespace SocialNetwork.Controllers.Admin
             return target.Role == UserRole.Admin && actor.Role != UserRole.SuperAdmin;
         }
 
-        private static bool TryParseRole(string? value, out UserRole role)
+        private static UserRole ParseRole(string? value)
         {
-            switch (value?.Trim().ToLowerInvariant())
-            {
-                case "member":
-                    role = UserRole.Member;
-                    return true;
-                case "admin":
-                    role = UserRole.Admin;
-                    return true;
-                default:
-                    role = UserRole.Member;
-                    return false;
-            }
+            return value?.Trim().ToLowerInvariant() == "admin" ? UserRole.Admin : UserRole.Member;
         }
 
         private static bool Matches(string? term, params string?[] values)
@@ -402,46 +407,18 @@ namespace SocialNetwork.Controllers.Admin
             return values.Any(value => value?.Contains(term, StringComparison.OrdinalIgnoreCase) == true);
         }
 
-        private static bool TryApplyCommunity(CreateCommunityRequest request, Community community, out string error)
+        private static void ApplyCommunity(CreateCommunityRequest request, Community community)
         {
-            var name = request.Name?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                error = "Give the community a name.";
-                return false;
-            }
-
-            if (name.Length > MaxCommunityNameLength)
-            {
-                error = $"Community names can be up to {MaxCommunityNameLength} characters.";
-                return false;
-            }
-
-            var description = request.Description?.Trim() ?? string.Empty;
-            if (description.Length > MaxCommunityDescriptionLength)
-            {
-                error = $"Descriptions can be up to {MaxCommunityDescriptionLength} characters.";
-                return false;
-            }
-
+            var name = request.Name.Trim();
             var color = request.Color?.Trim() ?? string.Empty;
-            if (color.Length > 0 && !ColorPattern().IsMatch(color))
-            {
-                error = "Choose a hex color.";
-                return false;
-            }
-
             community.Name = name;
-            community.Description = description;
+            community.Description = request.Description?.Trim() ?? string.Empty;
             community.Emoji = NormalizeEmoji(request.Emoji, name);
             if (color.Length > 0)
                 community.Color = color;
 
             if (request.Banner is not null)
                 community.BannerUrl = request.Banner.Trim();
-
-            error = string.Empty;
-            return true;
         }
 
         private static string NormalizeEmoji(string? emoji, string name)
@@ -453,90 +430,34 @@ namespace SocialNetwork.Controllers.Admin
             return value.Length <= 8 ? value : value[..8];
         }
 
-        private static bool TryApplySite(SiteSettings settings, UpdateSiteSettingsRequest request, out string error)
+        private static void ApplySite(SiteSettings settings, UpdateSiteSettingsRequest request)
         {
             if (request.SiteName is not null)
-            {
-                var name = request.SiteName.Trim();
-                if (name.Length == 0 || name.Length > 40)
-                {
-                    error = "Site name can be up to 40 characters.";
-                    return false;
-                }
-
-                settings.SiteName = name;
-            }
+                settings.SiteName = request.SiteName.Trim();
 
             if (request.Tagline is not null)
-            {
-                var tagline = request.Tagline.Trim();
-                if (tagline.Length > 120)
-                {
-                    error = "Tagline can be up to 120 characters.";
-                    return false;
-                }
-
-                settings.Tagline = tagline;
-            }
+                settings.Tagline = request.Tagline.Trim();
 
             if (request.LogoMark is not null)
             {
                 var mark = request.LogoMark.Trim();
-                if (mark.Length > 2)
-                {
-                    error = "Logo letter can be up to 2 characters.";
-                    return false;
-                }
-
                 settings.LogoMark = mark.Length == 0 ? FirstMark(settings.SiteName) : mark;
             }
 
             if (request.FooterNote is not null)
-            {
-                var footer = request.FooterNote.Trim();
-                if (footer.Length > 160)
-                {
-                    error = "Footer note can be up to 160 characters.";
-                    return false;
-                }
-
-                settings.FooterNote = footer;
-            }
+                settings.FooterNote = request.FooterNote.Trim();
 
             if (request.LogoUrl is not null)
                 settings.LogoUrl = request.LogoUrl.Trim();
 
-            if (!TryApplyBody(request.AboutBody, value => settings.AboutBody = value, "About", out error))
-                return false;
+            if (request.AboutBody is not null)
+                settings.AboutBody = request.AboutBody.Trim();
 
-            if (!TryApplyBody(request.GuidelinesBody, value => settings.GuidelinesBody = value, "Guidelines", out error))
-                return false;
+            if (request.GuidelinesBody is not null)
+                settings.GuidelinesBody = request.GuidelinesBody.Trim();
 
-            if (!TryApplyBody(request.PrivacyBody, value => settings.PrivacyBody = value, "Privacy", out error))
-                return false;
-
-            error = string.Empty;
-            return true;
-        }
-
-        private static bool TryApplyBody(string? value, Action<string> assign, string label, out string error)
-        {
-            if (value is null)
-            {
-                error = string.Empty;
-                return true;
-            }
-
-            var body = value.Trim();
-            if (body.Length > 2000)
-            {
-                error = $"{label} can be up to 2000 characters.";
-                return false;
-            }
-
-            assign(body);
-            error = string.Empty;
-            return true;
+            if (request.PrivacyBody is not null)
+                settings.PrivacyBody = request.PrivacyBody.Trim();
         }
 
         private static string FirstMark(string siteName)
@@ -668,8 +589,5 @@ namespace SocialNetwork.Controllers.Admin
                 _ => "open"
             };
         }
-
-        [GeneratedRegex("^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")]
-        private static partial Regex ColorPattern();
     }
 }

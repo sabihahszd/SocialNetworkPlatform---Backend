@@ -2,10 +2,12 @@
 using System.Text.Json;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Service.Helpers.DTOs.SiteSettings;
 using Service.Helpers.DTOs.UserSettings;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -17,15 +19,21 @@ namespace SocialNetwork.Controllers.Client
         private readonly IUserSettingsService _userSettingsService;
         private readonly ISiteSettingsService _siteSettingsService;
         private readonly IAppUserService _userService;
+        private readonly IValidator<UserSettingsDto> _settingsValidator;
+        private readonly IValidator<UpdateSiteSettingsRequest> _siteValidator;
 
         public SettingsController(
             IUserSettingsService userSettingsService,
             ISiteSettingsService siteSettingsService,
-            IAppUserService userService)
+            IAppUserService userService,
+            IValidator<UserSettingsDto> settingsValidator,
+            IValidator<UpdateSiteSettingsRequest> siteValidator)
         {
             _userSettingsService = userSettingsService;
             _siteSettingsService = siteSettingsService;
             _userService = userService;
+            _settingsValidator = settingsValidator;
+            _siteValidator = siteValidator;
         }
 
         [HttpGet]
@@ -46,11 +54,12 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizePrivacy(request.DefaultPrivacy, out var privacy))
-                return BadRequest(new { message = "Choose public, friends, or communities." });
+            var error = await _settingsValidator.FirstErrorAsync(request);
+            if (error is not null)
+                return BadRequest(new { message = error });
 
-            if (!TryNormalizeTheme(request.Theme, out var theme))
-                return BadRequest(new { message = "Choose system, light, or dark." });
+            var privacy = request.DefaultPrivacy.Trim().ToLowerInvariant();
+            var theme = request.Theme.Trim().ToLowerInvariant();
 
             var blocked = await NormalizeBlockedIdsAsync(request.BlockedUserIds, currentUser);
 
@@ -134,9 +143,12 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser.Role is not (UserRole.Admin or UserRole.SuperAdmin))
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "Only an admin can change site settings." });
 
-            var settings = await EnsureSiteSettingsAsync();
-            if (!TryApply(settings, request, out var error))
+            var error = await _siteValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var settings = await EnsureSiteSettingsAsync();
+            Apply(settings, request);
 
             await _siteSettingsService.EditAsync(settings);
             return Ok(ToDto(settings));
@@ -259,102 +271,34 @@ namespace SocialNetwork.Controllers.Client
             }
         }
 
-        private static bool TryNormalizePrivacy(string? value, out string privacy)
-        {
-            privacy = value?.Trim().ToLowerInvariant() ?? string.Empty;
-            return privacy is "public" or "friends" or "communities";
-        }
-
-        private static bool TryNormalizeTheme(string? value, out string theme)
-        {
-            theme = value?.Trim().ToLowerInvariant() ?? string.Empty;
-            return theme is "system" or "light" or "dark";
-        }
-
-        private static bool TryApply(SiteSettings settings, UpdateSiteSettingsRequest request, out string error)
+        private static void Apply(SiteSettings settings, UpdateSiteSettingsRequest request)
         {
             if (request.SiteName is not null)
-            {
-                var name = request.SiteName.Trim();
-                if (name.Length == 0 || name.Length > 40)
-                {
-                    error = "Site name can be up to 40 characters.";
-                    return false;
-                }
-
-                settings.SiteName = name;
-            }
+                settings.SiteName = request.SiteName.Trim();
 
             if (request.Tagline is not null)
-            {
-                var tagline = request.Tagline.Trim();
-                if (tagline.Length > 120)
-                {
-                    error = "Tagline can be up to 120 characters.";
-                    return false;
-                }
-
-                settings.Tagline = tagline;
-            }
+                settings.Tagline = request.Tagline.Trim();
 
             if (request.LogoMark is not null)
             {
                 var mark = request.LogoMark.Trim();
-                if (mark.Length > 2)
-                {
-                    error = "Logo letter can be up to 2 characters.";
-                    return false;
-                }
-
                 settings.LogoMark = mark.Length == 0 ? FirstMark(settings.SiteName) : mark;
             }
 
             if (request.FooterNote is not null)
-            {
-                var footer = request.FooterNote.Trim();
-                if (footer.Length > 160)
-                {
-                    error = "Footer note can be up to 160 characters.";
-                    return false;
-                }
-
-                settings.FooterNote = footer;
-            }
+                settings.FooterNote = request.FooterNote.Trim();
 
             if (request.LogoUrl is not null)
                 settings.LogoUrl = request.LogoUrl.Trim();
 
-            if (!TryApplyBody(request.AboutBody, value => settings.AboutBody = value, "About", out error))
-                return false;
+            if (request.AboutBody is not null)
+                settings.AboutBody = request.AboutBody.Trim();
 
-            if (!TryApplyBody(request.GuidelinesBody, value => settings.GuidelinesBody = value, "Guidelines", out error))
-                return false;
+            if (request.GuidelinesBody is not null)
+                settings.GuidelinesBody = request.GuidelinesBody.Trim();
 
-            if (!TryApplyBody(request.PrivacyBody, value => settings.PrivacyBody = value, "Privacy", out error))
-                return false;
-
-            error = string.Empty;
-            return true;
-        }
-
-        private static bool TryApplyBody(string? value, Action<string> assign, string label, out string error)
-        {
-            if (value is null)
-            {
-                error = string.Empty;
-                return true;
-            }
-
-            var body = value.Trim();
-            if (body.Length > 2000)
-            {
-                error = $"{label} can be up to 2000 characters.";
-                return false;
-            }
-
-            assign(body);
-            error = string.Empty;
-            return true;
+            if (request.PrivacyBody is not null)
+                settings.PrivacyBody = request.PrivacyBody.Trim();
         }
 
         private async Task<AppUser?> GetCurrentUserAsync()

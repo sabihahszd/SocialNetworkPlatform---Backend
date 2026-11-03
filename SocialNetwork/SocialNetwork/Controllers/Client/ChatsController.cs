@@ -1,10 +1,12 @@
 ﻿using System.Security.Claims;
 using Domain.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Service.Helpers.DTOs.ChatMessage;
 using Service.Helpers.DTOs.ChatThread;
 using Service.Helpers.DTOs.Common;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -13,20 +15,27 @@ namespace SocialNetwork.Controllers.Client
     [ApiController]
     public class ChatsController : ControllerBase
     {
-        private const int MaxMessageLength = 1000;
-
         private readonly IChatThreadService _chatThreadService;
         private readonly IChatMessageService _chatMessageService;
         private readonly IAppUserService _userService;
+        private readonly IValidator<DirectMessageRequest> _directMessageValidator;
+        private readonly IValidator<SendMessageRequest> _messageValidator;
+        private readonly IValidator<UpdateTextRequest> _textValidator;
 
         public ChatsController(
             IChatThreadService chatThreadService,
             IChatMessageService chatMessageService,
-            IAppUserService userService)
+            IAppUserService userService,
+            IValidator<DirectMessageRequest> directMessageValidator,
+            IValidator<SendMessageRequest> messageValidator,
+            IValidator<UpdateTextRequest> textValidator)
         {
             _chatThreadService = chatThreadService;
             _chatMessageService = chatMessageService;
             _userService = userService;
+            _directMessageValidator = directMessageValidator;
+            _messageValidator = messageValidator;
+            _textValidator = textValidator;
         }
 
         [HttpGet]
@@ -68,12 +77,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _directMessageValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
 
-            if (string.IsNullOrWhiteSpace(request.ParticipantId))
-                return BadRequest(new { message = "Choose someone to message." });
-
+            var text = request.Text.Trim();
             var participant = await _userService.GetByPublicIdAsync(request.ParticipantId.Trim());
             if (participant is null || participant.IsDeleted || !participant.IsActive)
                 return NotFound();
@@ -124,8 +132,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _messageValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var text = request.Text.Trim();
 
             var thread = await GetMemberThreadAsync(id, currentUser.Id);
             if (thread is null)
@@ -142,8 +153,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _textValidator.FirstErrorAsync(request, UpdateTextRequestValidator.Message);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var text = request.Text.Trim();
 
             var message = await GetOwnMessageAsync(id, messageId, currentUser.Id);
             if (message is null)
@@ -219,25 +233,6 @@ namespace SocialNetwork.Controllers.Client
 
             await _chatMessageService.CreateAsync(message);
             return message;
-        }
-
-        private static bool TryNormalizeText(string? value, out string text, out string error)
-        {
-            text = value?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                error = "Write a message before sending.";
-                return false;
-            }
-
-            if (text.Length > MaxMessageLength)
-            {
-                error = $"Messages can be up to {MaxMessageLength} characters.";
-                return false;
-            }
-
-            error = string.Empty;
-            return true;
         }
 
         private static DateTime LatestActivity(ChatThread thread)

@@ -3,11 +3,13 @@ using System.Text.Json;
 using Domain.Common;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Service.Helpers.DTOs.Comment;
 using Service.Helpers.DTOs.Common;
 using Service.Helpers.DTOs.Post;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -16,8 +18,6 @@ namespace SocialNetwork.Controllers.Client
     [ApiController]
     public class PostsController : ControllerBase
     {
-        private const int MaxPostLength = 1000;
-
         private readonly IPostService _postService;
         private readonly IPostLikeService _postLikeService;
         private readonly IRepostService _repostService;
@@ -29,6 +29,8 @@ namespace SocialNetwork.Controllers.Client
         private readonly IUserSettingsService _userSettingsService;
         private readonly INotificationService _notificationService;
         private readonly IAppUserService _userService;
+        private readonly IValidator<CreatePostRequest> _createPostValidator;
+        private readonly IValidator<UpdateTextRequest> _textValidator;
 
         public PostsController(
             IPostService postService,
@@ -41,7 +43,9 @@ namespace SocialNetwork.Controllers.Client
             IFriendshipService friendshipService,
             IUserSettingsService userSettingsService,
             INotificationService notificationService,
-            IAppUserService userService)
+            IAppUserService userService,
+            IValidator<CreatePostRequest> createPostValidator,
+            IValidator<UpdateTextRequest> textValidator)
         {
             _postService = postService;
             _postLikeService = postLikeService;
@@ -54,6 +58,8 @@ namespace SocialNetwork.Controllers.Client
             _userSettingsService = userSettingsService;
             _notificationService = notificationService;
             _userService = userService;
+            _createPostValidator = createPostValidator;
+            _textValidator = textValidator;
         }
 
         [HttpGet]
@@ -119,11 +125,12 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _createPostValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
 
-            if (!TryParsePrivacy(request.Privacy, out var privacy))
-                return BadRequest(new { message = "Choose public, friends, or communities." });
+            var text = request.Text.Trim();
+            var privacy = ParsePrivacy(request.Privacy);
 
             var communitiesResult = await ResolveCommunitiesAsync(request, currentUser.Id);
             if (communitiesResult.Error is not null)
@@ -175,8 +182,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _textValidator.FirstErrorAsync(request, UpdateTextRequestValidator.Post);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var text = request.Text.Trim();
 
             var post = await GetOwnPostAsync(id, currentUser.Id);
             if (post is null)
@@ -533,44 +543,14 @@ namespace SocialNetwork.Controllers.Client
             return ids;
         }
 
-        private static bool TryNormalizeText(string? value, out string text, out string error)
+        private static PostPrivacy ParsePrivacy(string? value)
         {
-            text = value?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(text))
+            return value?.Trim().ToLowerInvariant() switch
             {
-                error = "Write something before sharing.";
-                return false;
-            }
-
-            if (text.Length > MaxPostLength)
-            {
-                error = $"Posts can be up to {MaxPostLength} characters.";
-                return false;
-            }
-
-            error = string.Empty;
-            return true;
-        }
-
-        private static bool TryParsePrivacy(string? value, out PostPrivacy privacy)
-        {
-            switch (value?.Trim().ToLowerInvariant())
-            {
-                case null:
-                case "":
-                case "public":
-                    privacy = PostPrivacy.Public;
-                    return true;
-                case "friends":
-                    privacy = PostPrivacy.Friends;
-                    return true;
-                case "communities":
-                    privacy = PostPrivacy.Communities;
-                    return true;
-                default:
-                    privacy = PostPrivacy.Public;
-                    return false;
-            }
+                "friends" => PostPrivacy.Friends,
+                "communities" => PostPrivacy.Communities,
+                _ => PostPrivacy.Public
+            };
         }
 
         private static PostDto ToDto(Post post)

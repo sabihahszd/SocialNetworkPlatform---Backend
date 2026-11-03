@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
+using Service.Helpers.Validators;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Services;
@@ -48,6 +49,7 @@ builder.Services.AddScoped<IFriendRequestRepository, FriendRequestRepository>();
 builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddDtoValidators();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

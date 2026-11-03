@@ -2,8 +2,10 @@
 using System.Text.Json;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Service.Helpers.DTOs.Report;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -12,15 +14,13 @@ namespace SocialNetwork.Controllers.Client
     [ApiController]
     public class ReportsController : ControllerBase
     {
-        private const int MaxReasonLength = 120;
-        private const int MaxDetailsLength = 240;
-
         private readonly IReportService _reportService;
         private readonly IPostService _postService;
         private readonly IFriendshipService _friendshipService;
         private readonly ICommunityMemberService _communityMemberService;
         private readonly IUserSettingsService _userSettingsService;
         private readonly IAppUserService _userService;
+        private readonly IValidator<CreateReportRequest> _reportValidator;
 
         public ReportsController(
             IReportService reportService,
@@ -28,7 +28,8 @@ namespace SocialNetwork.Controllers.Client
             IFriendshipService friendshipService,
             ICommunityMemberService communityMemberService,
             IUserSettingsService userSettingsService,
-            IAppUserService userService)
+            IAppUserService userService,
+            IValidator<CreateReportRequest> reportValidator)
         {
             _reportService = reportService;
             _postService = postService;
@@ -36,6 +37,7 @@ namespace SocialNetwork.Controllers.Client
             _communityMemberService = communityMemberService;
             _userSettingsService = userSettingsService;
             _userService = userService;
+            _reportValidator = reportValidator;
         }
 
         [HttpGet]
@@ -75,8 +77,14 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeReason(request.Reason, request.Details, out var reason, out var error))
+            var error = await _reportValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var reason = request.Reason.Trim();
+            var extra = request.Details?.Trim() ?? string.Empty;
+            if (extra.Length > 0)
+                reason = $"{reason} — {extra}";
 
             var post = await GetVisiblePostAsync(request.PostId, currentUser);
             if (post is null)
@@ -256,35 +264,6 @@ namespace SocialNetwork.Controllers.Client
         private static bool CanRead(Report report, AppUser currentUser)
         {
             return IsAdmin(currentUser) || report.ReporterId == currentUser.Id;
-        }
-
-        private static bool TryNormalizeReason(string? reason, string? details, out string stored, out string error)
-        {
-            stored = reason?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(stored))
-            {
-                error = "Choose a reason for the report.";
-                return false;
-            }
-
-            if (stored.Length > MaxReasonLength)
-            {
-                error = $"Reasons can be up to {MaxReasonLength} characters.";
-                return false;
-            }
-
-            var extra = details?.Trim() ?? string.Empty;
-            if (extra.Length > MaxDetailsLength)
-            {
-                error = $"Details can be up to {MaxDetailsLength} characters.";
-                return false;
-            }
-
-            if (extra.Length > 0)
-                stored = $"{stored} — {extra}";
-
-            error = string.Empty;
-            return true;
         }
 
         private static ReportDto ToDto(Report report)

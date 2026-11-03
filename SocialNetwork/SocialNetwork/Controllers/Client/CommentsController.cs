@@ -1,9 +1,11 @@
 ﻿using System.Security.Claims;
 using Domain.Entities;
 using Domain.Enums;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Service.Helpers.DTOs.Comment;
 using Service.Helpers.DTOs.Common;
+using Service.Helpers.Validators;
 using Service.Services.Interfaces;
 
 namespace SocialNetwork.Controllers.Client
@@ -12,7 +14,6 @@ namespace SocialNetwork.Controllers.Client
     [ApiController]
     public class CommentsController : ControllerBase
     {
-        private const int MaxCommentLength = 240;
         private const int MaxDepth = 3;
 
         private readonly ICommentService _commentService;
@@ -20,19 +21,25 @@ namespace SocialNetwork.Controllers.Client
         private readonly IAppUserService _userService;
         private readonly IFriendshipService _friendshipService;
         private readonly ICommunityMemberService _communityMemberService;
+        private readonly IValidator<CommentRequestDto> _commentValidator;
+        private readonly IValidator<UpdateTextRequest> _textValidator;
 
         public CommentsController(
             ICommentService commentService,
             IPostService postService,
             IAppUserService userService,
             IFriendshipService friendshipService,
-            ICommunityMemberService communityMemberService)
+            ICommunityMemberService communityMemberService,
+            IValidator<CommentRequestDto> commentValidator,
+            IValidator<UpdateTextRequest> textValidator)
         {
             _commentService = commentService;
             _postService = postService;
             _userService = userService;
             _friendshipService = friendshipService;
             _communityMemberService = communityMemberService;
+            _commentValidator = commentValidator;
+            _textValidator = textValidator;
         }
 
         [HttpGet("post/{postId}")]
@@ -56,8 +63,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _commentValidator.FirstErrorAsync(request);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var text = request.Text.Trim();
 
             var post = await GetVisiblePostAsync(postId, currentUser);
             if (post is null)
@@ -96,8 +106,11 @@ namespace SocialNetwork.Controllers.Client
             if (currentUser is null)
                 return Unauthorized();
 
-            if (!TryNormalizeText(request.Text, out var text, out var error))
+            var error = await _textValidator.FirstErrorAsync(request, UpdateTextRequestValidator.Comment);
+            if (error is not null)
                 return BadRequest(new { message = error });
+
+            var text = request.Text.Trim();
 
             var comment = await GetOwnCommentAsync(id, currentUser.Id);
             if (comment is null)
@@ -214,25 +227,6 @@ namespace SocialNetwork.Controllers.Client
                 return null;
 
             return comment;
-        }
-
-        private static bool TryNormalizeText(string? value, out string text, out string error)
-        {
-            text = value?.Trim() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                error = "Write a comment before sending.";
-                return false;
-            }
-
-            if (text.Length > MaxCommentLength)
-            {
-                error = $"Comments can be up to {MaxCommentLength} characters.";
-                return false;
-            }
-
-            error = string.Empty;
-            return true;
         }
 
         private static List<CommentDto> ToTree(IEnumerable<Comment> comments)
