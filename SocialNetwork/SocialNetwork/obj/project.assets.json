@@ -4423,7 +4423,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\AppData\\Local\\Temp\\cursor-sandbox-cache\\1cb76fc1ecac48310656211cb8141f2d\\nuget": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -4432,7 +4432,7 @@
       "projectUniqueName": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\SocialNetwork.csproj",
       "projectName": "SocialNetwork",
       "projectPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\SocialNetwork.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\user\\AppData\\Local\\Temp\\cursor-sandbox-cache\\1cb76fc1ecac48310656211cb8141f2d\\nuget",
       "outputPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [

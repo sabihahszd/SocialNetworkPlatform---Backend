@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Admin\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
