@@ -24,7 +24,7 @@ namespace Repository.Repositories
 
         public Task<List<string>> GetOutgoingPublicIdsAsync(int userId)
         {
-            return DbSet.Where(request => request.FromUserId == userId && request.Status == RequestStatus.Pending)
+            return DbSet.Where(request => request.FromUserId == userId && !request.IsDeleted && request.Status == RequestStatus.Pending)
                             .Select(request => request.ToUser.PublicId)
                             .ToListAsync();
         }
@@ -32,7 +32,7 @@ namespace Repository.Repositories
 
         public Task<FriendRequest?> GetPendingAsync(int fromUserId, int toUserId)
         {
-            return DbSet.FirstOrDefaultAsync(request => request.FromUserId == fromUserId && request.ToUserId == toUserId && request.Status == RequestStatus.Pending);
+            return DbSet.FirstOrDefaultAsync(request => request.FromUserId == fromUserId && request.ToUserId == toUserId && !request.IsDeleted && request.Status == RequestStatus.Pending);
         }
     }
 }

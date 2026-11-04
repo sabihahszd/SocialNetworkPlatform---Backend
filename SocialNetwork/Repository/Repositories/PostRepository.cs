@@ -20,7 +20,7 @@ namespace Repository.Repositories
 
         public Task<int> CountAsync()
         {
-            return DbSet.CountAsync();
+            return DbSet.CountAsync(post => !post.IsDeleted);
         }
 
         public Task<Post?> GetByPublicIdAsync(string publicId)

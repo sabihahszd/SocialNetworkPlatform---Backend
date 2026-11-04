@@ -23,7 +23,7 @@ namespace Repository.Repositories
 
         public Task<bool> IsMemberAsync(int communityId, int userId)
         {
-            return DbSet.AnyAsync(member => member.CommunityId == communityId && member.UserId == userId);
+            return DbSet.AnyAsync(member => member.CommunityId == communityId && member.UserId == userId && !member.IsDeleted);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Repository.Repositories
 
         public Task<int> CountAsync()
         {
-            return DbSet.CountAsync();
+            return DbSet.CountAsync(user => !user.IsDeleted);
         }
         
 

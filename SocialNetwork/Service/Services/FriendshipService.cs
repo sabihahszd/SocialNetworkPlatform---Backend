@@ -48,6 +48,11 @@ namespace Service.Services
             return _friendshipRepository.ExistsAsync(userId, friendId);
         }
 
+        public Task<Friendship?> FindAsync(int userId, int friendId)
+        {
+            return _friendshipRepository.FindAsync(userId, friendId);
+        }
+
         public Task<List<string>> GetFriendPublicIdsAsync(int userId)
         {
             return _friendshipRepository.GetFriendPublicIdsAsync(userId);

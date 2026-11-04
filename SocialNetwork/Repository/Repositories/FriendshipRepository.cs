@@ -18,12 +18,19 @@ namespace Repository.Repositories
 
         public Task<bool> ExistsAsync(int userId, int friendId)
         {
-            return DbSet.AnyAsync(friendship => friendship.UserId == userId && friendship.FriendId == friendId);
+            return DbSet.AnyAsync(friendship => friendship.UserId == userId && friendship.FriendId == friendId && !friendship.IsDeleted);
+        }
+
+        public Task<Friendship?> FindAsync(int userId, int friendId)
+        {
+            return DbSet.FirstOrDefaultAsync(friendship => friendship.UserId == userId && friendship.FriendId == friendId);
         }
 
         public Task<List<string>> GetFriendPublicIdsAsync(int userId)
         {
-            return DbSet.Where(friendship => friendship.UserId == userId).Select(friendship => friendship.Friend.PublicId).ToListAsync();
+            return DbSet.Where(friendship => friendship.UserId == userId && !friendship.IsDeleted)
+                .Select(friendship => friendship.Friend.PublicId)
+                .ToListAsync();
         }
     }
 }

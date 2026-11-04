@@ -55,18 +55,12 @@ namespace SocialNetwork.Controllers.Admin
             if (access.Error is not null)
                 return access.Error;
 
-            var members = _userService.CountAsync();
-            var posts = _postService.CountAsync();
-            var reports = _reportService.CountOpenAsync();
-            var circles = _communityService.CountAsync();
-            await Task.WhenAll(members, posts, reports, circles);
-
             return Ok(new AdminStatsDto
             {
-                Members = await members,
-                Posts = await posts,
-                Reports = await reports,
-                Circles = await circles
+                Members = await _userService.CountAsync(),
+                Posts = await _postService.CountAsync(),
+                Reports = await _reportService.CountOpenAsync(),
+                Circles = await _communityService.CountAsync()
             });
         }
 

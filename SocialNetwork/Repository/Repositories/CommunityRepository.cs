@@ -18,7 +18,7 @@ namespace Repository.Repositories
 
         public Task<int> CountAsync()
         {
-            return DbSet.CountAsync();
+            return DbSet.CountAsync(community => !community.IsDeleted);
         }
 
         public Task<List<Community>> GetAllDetailedAsync()

@@ -19,7 +19,7 @@ namespace Repository.Repositories
 
         public Task<int> CountOpenAsync()
         {
-            return DbSet.CountAsync(report => report.Status == ReportStatus.Open);
+            return DbSet.CountAsync(report => !report.IsDeleted && report.Status == ReportStatus.Open);
         }
 
         public Task<Report?> GetByPublicIdAsync(string publicId)

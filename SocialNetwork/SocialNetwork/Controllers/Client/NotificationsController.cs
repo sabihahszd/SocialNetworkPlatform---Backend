@@ -145,20 +145,31 @@ namespace SocialNetwork.Controllers.Client
 
         private async Task EnsureFriendshipAsync(int userId, int friendId)
         {
-            if (await _friendshipService.ExistsAsync(userId, friendId))
+            var existing = await _friendshipService.FindAsync(userId, friendId);
+            if (existing is { IsDeleted: false })
                 return;
 
-            try
+            if (existing is null)
             {
-                await _friendshipService.CreateAsync(new Friendship
+                try
                 {
-                    UserId = userId,
-                    FriendId = friendId
-                });
+                    await _friendshipService.CreateAsync(new Friendship
+                    {
+                        UserId = userId,
+                        FriendId = friendId
+                    });
+                    return;
+                }
+                catch (DbUpdateException)
+                {
+                    existing = await _friendshipService.FindAsync(userId, friendId);
+                    if (existing is null || !existing.IsDeleted)
+                        return;
+                }
             }
-            catch (DbUpdateException)
-            {
-            }
+
+            existing.IsDeleted = false;
+            await _friendshipService.EditAsync(existing);
         }
 
         private async Task<AppUser?> GetCurrentUserAsync()

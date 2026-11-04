@@ -10,6 +10,7 @@ namespace Repository.Repositories.Interfaces
     public interface IFriendshipRepository : IBaseRepository<Friendship>
     {
         Task<bool> ExistsAsync(int userId, int friendId);
+        Task<Friendship?> FindAsync(int userId, int friendId);
         Task<List<string>> GetFriendPublicIdsAsync(int userId);
     }
 }
