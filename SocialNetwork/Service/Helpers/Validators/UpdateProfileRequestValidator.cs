@@ -7,9 +7,9 @@ namespace Service.Helpers.Validators
         public UpdateProfileRequestValidator()
         {
             RuleFor(request => request.Name)
-                .Must(name => ValidationRules.PresentWithin(name, 48))
+                .Must(name => ValidationRules.PresentWithin(name, 60))
                 .When(request => request.Name is not null)
-                .WithMessage("Names can be up to 48 characters.");
+                .WithMessage("Names can be up to 60 characters.");
 
             RuleFor(request => request.Username)
                 .Must(username => ValidationRules.PresentWithin(username, 24) && !ValidationRules.Trimmed(username).Contains(' '))

@@ -184,6 +184,17 @@ namespace SocialNetwork.Controllers.Client
             return Ok(ToUserDto(user));
         }
 
+        [HttpDelete("me")]
+        public async Task<IActionResult> DeleteMe()
+        {
+            var user = await GetCurrentUserAsync();
+            if (user is null)
+                return Unauthorized();
+
+            await _userService.DeleteAsync(user);
+            return NoContent();
+        }
+
         private async Task<AppUser?> GetCurrentUserAsync()
         {
             var publicId = User.FindFirstValue(ClaimTypes.NameIdentifier);
