@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: 0eb9e56e-5738-49f7-8c13-755751ffa20d
+
+localResources:
+  specs:
+    - ../SocialNetwork/obj/Debug/net8.0/EndpointInfo/SocialNetwork.json

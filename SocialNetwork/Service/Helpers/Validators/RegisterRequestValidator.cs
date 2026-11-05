@@ -32,6 +32,12 @@ namespace Service.Helpers.Validators
                 .Must(password => ValidationRules.Trimmed(password).Length >= 6)
                 .WithMessage("Password must be at least 6 characters.");
 
+            RuleFor(request => request.ConfirmPassword)
+                .Must(confirm => !ValidationRules.IsBlank(confirm))
+                .WithMessage("Confirm your password.")
+                .Must((request, confirm) => confirm == request.Password)
+                .WithMessage("Passwords do not match.");
+
             RuleFor(request => request.Bio)
                 .Must(bio => ValidationRules.Within(bio, 180))
                 .WithMessage("Bio can be up to 180 characters.");
