@@ -18,7 +18,7 @@ namespace Repository.Repositories
 
         public Task<SiteSettings?> GetCurrentAsync()
         {
-            return DbSet.FirstOrDefaultAsync();
+            return DbSet.OrderBy(settings => settings.Id).FirstOrDefaultAsync();
         }
     }
 }

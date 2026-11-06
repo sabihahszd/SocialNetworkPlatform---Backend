@@ -37,6 +37,25 @@ namespace Repository.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<AppUser>().ToTable("Users");
+            modelBuilder.Entity<Bookmark>().ToTable("Bookmarks");
+            modelBuilder.Entity<ChatMessage>().ToTable("ChatMessage");
+            modelBuilder.Entity<ChatThread>().ToTable("ChatThread");
+            modelBuilder.Entity<Comment>().ToTable("Comment");
+            modelBuilder.Entity<Community>().ToTable("Community");
+            modelBuilder.Entity<CommunityMember>().ToTable("CommunityMember");
+            modelBuilder.Entity<Follow>().ToTable("Follow");
+            modelBuilder.Entity<FriendRequest>().ToTable("FriendRequest");
+            modelBuilder.Entity<Friendship>().ToTable("Friendship");
+            modelBuilder.Entity<Notification>().ToTable("Notification");
+            modelBuilder.Entity<Post>().ToTable("Posts");
+            modelBuilder.Entity<PostCommunity>().ToTable("PostCommunity");
+            modelBuilder.Entity<PostLike>().ToTable("PostLike");
+            modelBuilder.Entity<Report>().ToTable("Report");
+            modelBuilder.Entity<Repost>().ToTable("Repost");
+            modelBuilder.Entity<SiteSettings>().ToTable("SiteSettings");
+            modelBuilder.Entity<UserSettings>().ToTable("UserSettings");
+
             modelBuilder.Entity<UserSettings>(entity =>
             {
                 entity.HasKey(settings => settings.UserId);

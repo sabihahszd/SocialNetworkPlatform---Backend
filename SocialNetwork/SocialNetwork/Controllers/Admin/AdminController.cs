@@ -524,16 +524,25 @@ namespace SocialNetwork.Controllers.Admin
                 .Select(group => group.First())
                 .ToList();
 
+            var ownerId = community.Owner?.PublicId ?? string.Empty;
+            var memberIds = members
+                .Select(member => member.User.PublicId)
+                .Where(id => !string.IsNullOrWhiteSpace(id))
+                .Distinct()
+                .ToList();
+            if (!string.IsNullOrWhiteSpace(ownerId) && !memberIds.Contains(ownerId))
+                memberIds.Insert(0, ownerId);
+
             return new CoomunityDto
             {
                 Id = community.PublicId,
                 Name = community.Name,
                 Emoji = community.Emoji,
                 Description = community.Description,
-                Members = members.Count > 0 ? members.Count : community.MemberCount,
-                MemberIds = members.Select(member => member.User.PublicId).ToList(),
-                OwnerId = community.Owner?.PublicId ?? string.Empty,
-                Joined = members.Any(member => member.UserId == currentUserId),
+                Members = memberIds.Count > 0 ? memberIds.Count : community.MemberCount,
+                MemberIds = memberIds,
+                OwnerId = ownerId,
+                Joined = community.OwnerId == currentUserId || members.Any(member => member.UserId == currentUserId),
                 Color = community.Color,
                 Banner = community.BannerUrl
             };

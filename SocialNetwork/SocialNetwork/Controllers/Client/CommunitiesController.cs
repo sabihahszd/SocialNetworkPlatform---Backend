@@ -133,11 +133,13 @@ namespace SocialNetwork.Controllers.Client
 
             var membership = await _communityMemberService.FindAsync(community.Id, currentUser.Id);
             var joined = membership is not null && !membership.IsDeleted;
-            if (joined)
+            if (community.OwnerId == currentUser.Id)
             {
-                if (community.OwnerId == currentUser.Id)
-                    return BadRequest(new { message = "The creator stays in the community." });
-
+                if (!joined)
+                    await AddMemberAsync(community.Id, currentUser.Id);
+            }
+            else if (joined)
+            {
                 await _communityMemberService.DeleteAsync(membership!);
             }
             else
@@ -262,16 +264,25 @@ namespace SocialNetwork.Controllers.Client
                 .Select(group => group.First())
                 .ToList();
 
+            var ownerId = community.Owner?.PublicId ?? string.Empty;
+            var memberIds = members
+                .Select(member => member.User.PublicId)
+                .Where(id => !string.IsNullOrWhiteSpace(id))
+                .Distinct()
+                .ToList();
+            if (!string.IsNullOrWhiteSpace(ownerId) && !memberIds.Contains(ownerId))
+                memberIds.Insert(0, ownerId);
+
             return new CoomunityDto
             {
                 Id = community.PublicId,
                 Name = community.Name,
                 Emoji = community.Emoji,
                 Description = community.Description,
-                Members = members.Count,
-                MemberIds = members.Select(member => member.User.PublicId).ToList(),
-                OwnerId = community.Owner?.PublicId ?? string.Empty,
-                Joined = members.Any(member => member.UserId == currentUserId),
+                Members = memberIds.Count,
+                MemberIds = memberIds,
+                OwnerId = ownerId,
+                Joined = community.OwnerId == currentUserId || members.Any(member => member.UserId == currentUserId),
                 Color = community.Color,
                 Banner = community.BannerUrl
             };

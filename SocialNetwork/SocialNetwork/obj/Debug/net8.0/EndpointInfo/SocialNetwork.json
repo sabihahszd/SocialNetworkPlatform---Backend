@@ -446,6 +446,16 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Chats": {

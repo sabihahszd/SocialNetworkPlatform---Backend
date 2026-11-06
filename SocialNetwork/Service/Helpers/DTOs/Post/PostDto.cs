@@ -11,6 +11,9 @@ namespace Service.Helpers.DTOs.Post
     {
         public string Id { get; set; } = string.Empty;
         public string AuthorId { get; set; } = string.Empty;
+        public string AuthorName { get; set; } = string.Empty;
+        public string AuthorUsername { get; set; } = string.Empty;
+        public string AuthorPhoto { get; set; } = string.Empty;
         public string? CommunityId { get; set; }
         public List<string> CommunityIds { get; set; } = new();
         public string Text { get; set; } = string.Empty;

@@ -345,7 +345,7 @@ namespace SocialNetwork.Controllers.Client
                     membership[communityId] = isMember;
                 }
 
-                if (isMember)
+                if (isMember || OwnsCommunity(post, communityId, currentUser.Id))
                     return true;
             }
 
@@ -385,7 +385,7 @@ namespace SocialNetwork.Controllers.Client
                 if (community is null || community.IsDeleted)
                     return (communities, NotFound());
 
-                if (!await _communityMemberService.IsMemberAsync(community.Id, userId))
+                if (community.OwnerId != userId && !await _communityMemberService.IsMemberAsync(community.Id, userId))
                     return (communities, BadRequest(new { message = "You can only post in a community you belong to." }));
 
                 communities.Add(community);
@@ -543,6 +543,15 @@ namespace SocialNetwork.Controllers.Client
             return ids;
         }
 
+        private static bool OwnsCommunity(Post post, int communityId, int userId)
+        {
+            if (post.CommunityId == communityId && post.Community?.OwnerId == userId)
+                return true;
+
+            return post.PostCommunities?.Any(link =>
+                !link.IsDeleted && link.CommunityId == communityId && link.Community?.OwnerId == userId) == true;
+        }
+
         private static PostPrivacy ParsePrivacy(string? value)
         {
             return value?.Trim().ToLowerInvariant() switch
@@ -568,6 +577,9 @@ namespace SocialNetwork.Controllers.Client
             {
                 Id = post.PublicId,
                 AuthorId = post.Author?.PublicId ?? string.Empty,
+                AuthorName = post.Author?.Name ?? string.Empty,
+                AuthorUsername = post.Author?.Username ?? string.Empty,
+                AuthorPhoto = post.Author?.PhotoUrl ?? string.Empty,
                 CommunityId = post.Community?.PublicId,
                 CommunityIds = communityIds,
                 Text = post.Text,

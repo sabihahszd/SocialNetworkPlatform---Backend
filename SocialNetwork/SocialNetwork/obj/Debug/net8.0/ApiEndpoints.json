@@ -275,6 +275,16 @@
   },
   {
     "ContainingType": "SocialNetwork.Controllers.Client.AuthController",
+    "Method": "DeleteMe",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
