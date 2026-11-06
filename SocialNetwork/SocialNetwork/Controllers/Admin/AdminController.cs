@@ -560,7 +560,7 @@ namespace SocialNetwork.Controllers.Admin
             };
         }
 
-        private static CoomunityDto ToCommunityDto(Community community, int currentUserId)
+        private static CommunityDto ToCommunityDto(Community community, int currentUserId)
         {
             var members = (community.Members ?? [])
                 .Where(member => !member.IsDeleted && member.User is { IsDeleted: false })
@@ -577,7 +577,7 @@ namespace SocialNetwork.Controllers.Admin
             if (!string.IsNullOrWhiteSpace(ownerId) && !memberIds.Contains(ownerId))
                 memberIds.Insert(0, ownerId);
 
-            return new CoomunityDto
+            return new CommunityDto
             {
                 Id = community.PublicId,
                 Name = community.Name,
@@ -586,6 +586,7 @@ namespace SocialNetwork.Controllers.Admin
                 Members = memberIds.Count > 0 ? memberIds.Count : community.MemberCount,
                 MemberIds = memberIds,
                 OwnerId = ownerId,
+                OwnerName = community.Owner?.Name ?? string.Empty,
                 Joined = community.OwnerId == currentUserId || members.Any(member => member.UserId == currentUserId),
                 Color = community.Color,
                 Banner = community.BannerUrl

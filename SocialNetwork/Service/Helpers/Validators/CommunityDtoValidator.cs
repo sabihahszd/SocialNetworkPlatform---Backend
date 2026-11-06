@@ -2,9 +2,9 @@ using Service.Helpers.DTOs.Community;
 
 namespace Service.Helpers.Validators
 {
-    public class CoomunityDtoValidator : DtoValidator<CoomunityDto>
+    public class CommunityDtoValidator : DtoValidator<CommunityDto>
     {
-        public CoomunityDtoValidator()
+        public CommunityDtoValidator()
         {
             RuleFor(community => community.Id).NotEmpty();
             RuleFor(community => community.Name)

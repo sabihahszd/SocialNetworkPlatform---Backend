@@ -16,3 +16,7 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Reposit
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Repository\obj\Debug\net8.0\Repository.pdb
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Repository\obj\Debug\net8.0\Repository.genruntimeconfig.cache
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Repository\obj\Debug\net8.0\ref\Repository.dll
+C:\Users\user\AppData\Local\Temp\gather-build-check\Repository.deps.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\Repository.runtimeconfig.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\Repository.dll
+C:\Users\user\AppData\Local\Temp\gather-build-check\Repository.pdb

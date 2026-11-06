@@ -154,3 +154,12 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialN
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\SocialNetwork.genruntimeconfig.cache
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\ref\SocialNetwork.dll
 C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\AppData\Local\Temp\gather-build-check\appsettings.Development.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\appsettings.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.staticwebassets.endpoints.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.exe
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.deps.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.runtimeconfig.json
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.dll
+C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.pdb
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

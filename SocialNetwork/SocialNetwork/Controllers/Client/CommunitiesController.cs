@@ -62,7 +62,7 @@ namespace SocialNetwork.Controllers.Client
                 return Unauthorized();
 
             var matches = await _communityService.SearchAsync(q);
-            var response = new List<CoomunityDto>();
+            var response = new List<CommunityDto>();
             foreach (var match in matches.Where(community => !community.IsDeleted))
             {
                 var community = await _communityService.GetDetailedByPublicIdAsync(match.PublicId);
@@ -256,7 +256,7 @@ namespace SocialNetwork.Controllers.Client
             return "#e8efdc";
         }
 
-        private static CoomunityDto ToDto(Community community, int currentUserId)
+        private static CommunityDto ToDto(Community community, int currentUserId)
         {
             var members = community.Members
                 .Where(member => !member.IsDeleted && member.User is { IsDeleted: false })
@@ -273,7 +273,7 @@ namespace SocialNetwork.Controllers.Client
             if (!string.IsNullOrWhiteSpace(ownerId) && !memberIds.Contains(ownerId))
                 memberIds.Insert(0, ownerId);
 
-            return new CoomunityDto
+            return new CommunityDto
             {
                 Id = community.PublicId,
                 Name = community.Name,
@@ -282,6 +282,7 @@ namespace SocialNetwork.Controllers.Client
                 Members = memberIds.Count,
                 MemberIds = memberIds,
                 OwnerId = ownerId,
+                OwnerName = community.Owner?.Name ?? string.Empty,
                 Joined = community.OwnerId == currentUserId || members.Any(member => member.UserId == currentUserId),
                 Color = community.Color,
                 Banner = community.BannerUrl

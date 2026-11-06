@@ -631,6 +631,9 @@ namespace SocialNetwork.Controllers.Client
                         {
                             Id = comment.PublicId,
                             AuthorId = comment.Author?.PublicId ?? string.Empty,
+                            AuthorName = comment.Author?.Name ?? string.Empty,
+                            AuthorUsername = comment.Author?.Username ?? string.Empty,
+                            AuthorPhoto = comment.Author?.PhotoUrl ?? string.Empty,
                             Text = comment.Text,
                             CreatedAt = comment.CreatedAt
                         };

@@ -96,7 +96,7 @@ namespace SocialNetwork.Controllers.Client
             };
 
             await _commentService.CreateAsync(comment);
-            return Ok(ToDto(comment, currentUser.PublicId));
+            return Ok(ToDto(comment, currentUser));
         }
 
         [HttpPut("{id}")]
@@ -118,7 +118,7 @@ namespace SocialNetwork.Controllers.Client
 
             comment.Text = text;
             await _commentService.EditAsync(comment);
-            return Ok(ToDto(comment, currentUser.PublicId));
+            return Ok(ToDto(comment, currentUser));
         }
 
         [HttpDelete("{id}")]
@@ -245,7 +245,7 @@ namespace SocialNetwork.Controllers.Client
                     .OrderBy(comment => comment.CreatedAt)
                     .Select(comment =>
                     {
-                        var dto = ToDto(comment, comment.Author?.PublicId ?? string.Empty);
+                        var dto = ToDto(comment, comment.Author);
                         dto.Replies = Map(comment.Id);
                         return dto;
                     })
@@ -255,12 +255,16 @@ namespace SocialNetwork.Controllers.Client
             return Map(null);
         }
 
-        private static CommentDto ToDto(Comment comment, string authorPublicId)
+        private static CommentDto ToDto(Comment comment, AppUser? author)
         {
+            author ??= comment.Author;
             return new CommentDto
             {
                 Id = comment.PublicId,
-                AuthorId = comment.Author?.PublicId ?? authorPublicId,
+                AuthorId = author?.PublicId ?? string.Empty,
+                AuthorName = author?.Name ?? string.Empty,
+                AuthorUsername = author?.Username ?? string.Empty,
+                AuthorPhoto = author?.PhotoUrl ?? string.Empty,
                 Text = comment.Text,
                 CreatedAt = comment.CreatedAt
             };

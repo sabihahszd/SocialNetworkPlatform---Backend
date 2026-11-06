@@ -10,6 +10,9 @@ namespace Service.Helpers.DTOs.Comment
     {
         public string Id { get; set; } = string.Empty;
         public string AuthorId { get; set; } = string.Empty;
+        public string AuthorName { get; set; } = string.Empty;
+        public string AuthorUsername { get; set; } = string.Empty;
+        public string AuthorPhoto { get; set; } = string.Empty;
         public string Text { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public List<CommentDto> Replies { get; set; } = new();
