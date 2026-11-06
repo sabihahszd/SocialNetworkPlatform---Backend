@@ -373,7 +373,8 @@ namespace SocialNetwork.Controllers.Client
                 Banner = user.BannerUrl,
                 Tone = user.Tone,
                 Role = ToRole(user.Role),
-                Active = user.IsActive
+                Active = user.IsActive,
+                CreatedAt = user.CreatedAt
             };
         }
 

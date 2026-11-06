@@ -66,7 +66,8 @@ namespace SocialNetwork.Controllers.Client
                     UserRole.Admin => "admin",
                     _ => "member"
                 },
-                Active = user.IsActive
+                Active = user.IsActive,
+                CreatedAt = user.CreatedAt
             };
         }
     }

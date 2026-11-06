@@ -19,5 +19,6 @@ namespace Service.Helpers.DTOs.AppUser
         public string Tone { get; set; } = string.Empty;
         public string Role { get; set; } = "member";
         public bool Active { get; set; } = true;
+        public DateTime CreatedAt { get; set; }
     }
 }
