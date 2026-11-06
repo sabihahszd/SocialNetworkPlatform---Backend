@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Service.Helpers.DTOs.AppUser;
 using Service.Helpers.Validators;
 using Service.Services.Interfaces;
+using SocialNetwork.Email;
 
 namespace SocialNetwork.Controllers.Client
 {
@@ -25,6 +26,9 @@ namespace SocialNetwork.Controllers.Client
         private readonly IValidator<RegisterRequest> _registerValidator;
         private readonly IValidator<LoginRequest> _loginValidator;
         private readonly IValidator<UpdateProfileRequest> _profileValidator;
+        private readonly IValidator<ForgotPasswordRequest> _forgotPasswordValidator;
+        private readonly IValidator<ResetPasswordRequest> _resetPasswordValidator;
+        private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
 
         public AuthController(
@@ -33,6 +37,9 @@ namespace SocialNetwork.Controllers.Client
             IValidator<RegisterRequest> registerValidator,
             IValidator<LoginRequest> loginValidator,
             IValidator<UpdateProfileRequest> profileValidator,
+            IValidator<ForgotPasswordRequest> forgotPasswordValidator,
+            IValidator<ResetPasswordRequest> resetPasswordValidator,
+            IEmailSender emailSender,
             IConfiguration configuration)
         {
             _userService = userService;
@@ -40,6 +47,9 @@ namespace SocialNetwork.Controllers.Client
             _registerValidator = registerValidator;
             _loginValidator = loginValidator;
             _profileValidator = profileValidator;
+            _forgotPasswordValidator = forgotPasswordValidator;
+            _resetPasswordValidator = resetPasswordValidator;
+            _emailSender = emailSender;
             _configuration = configuration;
         }
 
@@ -113,6 +123,70 @@ namespace SocialNetwork.Controllers.Client
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is suspended." });
 
             return Ok(ToAuthResponse(user));
+        }
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
+        {
+            var error = await _forgotPasswordValidator.FirstErrorAsync(request);
+            if (error is not null)
+                return BadRequest(new { message = error });
+
+            var email = NormalizeEmail(request.Email);
+            var user = await _userService.GetByEmailAsync(email);
+            if (user is null)
+                return BadRequest(new { message = "No account uses that email." });
+
+            if (!user.IsActive)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is suspended." });
+
+            var code = RandomNumberGenerator.GetInt32(0, 1_000_000).ToString("D6");
+            user.PasswordResetCodeHash = HashPassword(code);
+            user.PasswordResetExpiresAt = DateTime.UtcNow.AddMinutes(15);
+            await _userService.EditAsync(user);
+
+            try
+            {
+                await _emailSender.SendAsync(
+                    user.Email,
+                    "Your Gather verification code",
+                    $"Your verification code is {code}. It expires in 15 minutes.");
+            }
+            catch (Exception)
+            {
+                user.PasswordResetCodeHash = null;
+                user.PasswordResetExpiresAt = null;
+                await _userService.EditAsync(user);
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, new { message = "The verification email could not be sent." });
+            }
+
+            return Ok(new { message = "We sent a verification code to that email." });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+        {
+            var error = await _resetPasswordValidator.FirstErrorAsync(request);
+            if (error is not null)
+                return BadRequest(new { message = error });
+
+            var email = NormalizeEmail(request.Email);
+            var user = await _userService.GetByEmailAsync(email);
+            if (user is null || !user.IsActive)
+                return BadRequest(new { message = "That verification code is not right or has expired." });
+
+            var expired = user.PasswordResetExpiresAt is null || user.PasswordResetExpiresAt < DateTime.UtcNow;
+            var codeMatches = !string.IsNullOrWhiteSpace(user.PasswordResetCodeHash)
+                && VerifyPassword(request.Code.Trim(), user.PasswordResetCodeHash);
+            if (expired || !codeMatches)
+                return BadRequest(new { message = "That verification code is not right or has expired." });
+
+            user.PasswordHash = HashPassword(request.Password);
+            user.PasswordResetCodeHash = null;
+            user.PasswordResetExpiresAt = null;
+            await _userService.EditAsync(user);
+
+            return Ok(new { message = "Your password has been updated." });
         }
 
         [HttpGet("me")]

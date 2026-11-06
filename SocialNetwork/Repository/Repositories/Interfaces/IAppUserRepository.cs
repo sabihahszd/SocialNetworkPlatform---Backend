@@ -11,6 +11,7 @@ namespace Repository.Repositories.Interfaces
     {
         Task<AppUser?> GetByPublicIdAsync(string publicId);
         Task<AppUser?> FindByIdentityAsync(string identity);
+        Task<AppUser?> GetByEmailAsync(string email);
         Task<bool> UsernameTakenAsync(string username, int? exceptId = null);
         Task<bool> EmailTakenAsync(string email, int? exceptId = null);
         Task<List<AppUser>> SearchAsync(string? query);

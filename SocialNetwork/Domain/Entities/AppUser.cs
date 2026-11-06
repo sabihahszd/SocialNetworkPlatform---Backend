@@ -15,6 +15,8 @@ namespace Domain.Entities
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
+        public string? PasswordResetCodeHash { get; set; }
+        public DateTime? PasswordResetExpiresAt { get; set; }
         public string Bio { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
         public string PhotoUrl { get; set; } = string.Empty;

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 
@@ -28,6 +29,29 @@ namespace Service.Services
             return _userRepository.EditAsync(entity);
         }
 
+        public async Task<bool> AddToRoleAsync(AppUser user, UserRole role)
+        {
+            if (user.Role == UserRole.SuperAdmin || role == UserRole.SuperAdmin)
+                return false;
+
+            if (user.Role == role)
+                return true;
+
+            user.Role = role;
+            await EditAsync(user);
+            return true;
+        }
+
+        public async Task<bool> RemoveFromRoleAsync(AppUser user, UserRole role)
+        {
+            if (user.Role == UserRole.SuperAdmin || user.Role != role || role == UserRole.Member)
+                return false;
+
+            user.Role = UserRole.Member;
+            await EditAsync(user);
+            return true;
+        }
+
         public Task<AppUser?> GetByIdAsync(int id)
         {
             return _userRepository.GetByIdAsync(id);
@@ -51,6 +75,11 @@ namespace Service.Services
         public Task<AppUser?> FindByIdentityAsync(string identity)
         {
             return _userRepository.FindByIdentityAsync(identity);
+        }
+
+        public Task<AppUser?> GetByEmailAsync(string email)
+        {
+            return _userRepository.GetByEmailAsync(email);
         }
 
         public Task<bool> UsernameTakenAsync(string username, int? exceptId = null)

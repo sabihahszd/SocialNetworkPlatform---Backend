@@ -106,10 +106,22 @@ namespace SocialNetwork.Controllers.Admin
                 return BadRequest(new { message = error });
 
             var role = ParseRole(request.Role);
+            if (!await _userService.AddToRoleAsync(target, role))
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account's role cannot be changed here." });
 
-            target.Role = role;
-            await _userService.EditAsync(target);
             return Ok(ToUserDto(target));
+        }
+
+        [HttpPost("members/{id}/roles/{role}")]
+        public Task<IActionResult> AddToRole(string id, string role)
+        {
+            return ChangeRoleAsync(id, role, add: true);
+        }
+
+        [HttpDelete("members/{id}/roles/{role}")]
+        public Task<IActionResult> RemoveFromRole(string id, string role)
+        {
+            return ChangeRoleAsync(id, role, add: false);
         }
 
         [HttpPost("members/{id}/status")]
@@ -386,6 +398,38 @@ namespace SocialNetwork.Controllers.Admin
                 return true;
 
             return target.Role == UserRole.Admin && actor.Role != UserRole.SuperAdmin;
+        }
+
+        private async Task<IActionResult> ChangeRoleAsync(string id, string roleName, bool add)
+        {
+            var access = await RequireAdminAsync();
+            if (access.Error is not null)
+                return access.Error;
+
+            var currentUser = access.User!;
+            if (currentUser.Role != UserRole.SuperAdmin)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "Only a superadmin can change roles." });
+
+            var normalizedRole = roleName?.Trim().ToLowerInvariant();
+            if (normalizedRole is not ("member" or "admin"))
+                return BadRequest(new { message = "Choose member or admin." });
+
+            var target = await _userService.GetByPublicIdAsync(id);
+            if (target is null || target.IsDeleted)
+                return NotFound();
+
+            if (target.Role == UserRole.SuperAdmin || target.Id == currentUser.Id)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account's role cannot be changed here." });
+
+            var role = ParseRole(roleName);
+            var changed = add
+                ? await _userService.AddToRoleAsync(target, role)
+                : await _userService.RemoveFromRoleAsync(target, role);
+
+            if (!changed)
+                return BadRequest(new { message = add ? "That role could not be assigned." : "This account does not have that role." });
+
+            return Ok(ToUserDto(target));
         }
 
         private static UserRole ParseRole(string? value)

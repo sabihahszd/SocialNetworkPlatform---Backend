@@ -36,6 +36,11 @@ namespace Repository.Repositories
             return DbSet.FirstOrDefaultAsync(user => user.Username == key || user.Email == key || user.Name.ToLower() == key);
         }
 
+        public Task<AppUser?> GetByEmailAsync(string email)
+        {
+            return DbSet.FirstOrDefaultAsync(user => user.Email == email && !user.IsDeleted);
+        }
+
 
         public Task<AppUser?> GetByPublicIdAsync(string publicId)
         {
