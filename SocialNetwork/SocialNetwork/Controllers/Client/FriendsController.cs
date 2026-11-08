@@ -172,10 +172,10 @@ namespace SocialNetwork.Controllers.Client
 
             var request = await _friendRequestService.GetPendingAsync(currentUser.Id, target.Id);
             if (request is null)
-                return NotFound();
+                return NoContent();
 
             await _friendRequestService.DeleteAsync(request);
-            await CloseRequestNotificationAsync(target.Id, currentUser.Id, RequestStatus.Declined);
+            await RemoveRequestNotificationAsync(target.Id, currentUser.Id);
             return NoContent();
         }
 
@@ -312,6 +312,27 @@ namespace SocialNetwork.Controllers.Client
             tracked.Status = RequestStatus.Pending;
             tracked.IsRead = false;
             await _notificationService.EditAsync(tracked);
+        }
+
+        private async Task RemoveRequestNotificationAsync(int recipientId, int actorId)
+        {
+            var notifications = await _notificationService.GetForRecipientAsync(recipientId);
+            var matches = notifications.Where(notification =>
+                !notification.IsDeleted
+                && notification.Type == NotificationType.FriendRequest
+                && notification.ActorId == actorId
+                && notification.Status == RequestStatus.Pending);
+
+            foreach (var notification in matches)
+            {
+                var tracked = await _notificationService.GetByPublicIdAsync(notification.PublicId, recipientId);
+                if (tracked is null || tracked.IsDeleted)
+                    continue;
+
+                tracked.IsDeleted = true;
+                tracked.IsRead = true;
+                await _notificationService.EditAsync(tracked);
+            }
         }
 
         private async Task CloseRequestNotificationAsync(int recipientId, int actorId, RequestStatus status)

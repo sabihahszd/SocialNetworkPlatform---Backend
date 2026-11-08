@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\communitiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\friendscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Program.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Program.cs",
@@ -111,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\AuthController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\AuthController.cs",
@@ -119,12 +119,11 @@
               "RelativeToolTip": "SocialNetwork\\Controllers\\Client\\AuthController.cs",
               "ViewState": "AgIAAHIBAAAAAAAAAAAAAOUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-03T22:56:23.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-03T22:56:23.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Admin\\AdminController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Admin\\AdminController.cs",
@@ -136,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SiteController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\SiteController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\SiteController.cs",
@@ -160,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ReportsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\ReportsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\ReportsController.cs",
@@ -172,19 +171,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "FriendsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\FriendsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\FriendsController.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\FriendsController.cs",
               "RelativeToolTip": "SocialNetwork\\Controllers\\Client\\FriendsController.cs",
-              "ViewState": "AgIAAGwBAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADkBAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-02T18:02:17.106Z"
+              "WhenOpened": "2026-11-02T18:02:17.106Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CommunitiesController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\CommunitiesController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\CommunitiesController.cs",
@@ -196,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PostsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\PostsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\PostsController.cs",
@@ -220,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CommentsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\CommentsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\CommentsController.cs",
