@@ -28,8 +28,9 @@ namespace Repository.Repositories
 
         public Task<List<string>> GetFriendPublicIdsAsync(int userId)
         {
-            return DbSet.Where(friendship => friendship.UserId == userId && !friendship.IsDeleted)
-                .Select(friendship => friendship.Friend.PublicId)
+            return DbSet.Where(friendship => !friendship.IsDeleted && (friendship.UserId == userId || friendship.FriendId == userId))
+                .Select(friendship => friendship.UserId == userId ? friendship.Friend.PublicId : friendship.User.PublicId)
+                .Distinct()
                 .ToListAsync();
         }
     }

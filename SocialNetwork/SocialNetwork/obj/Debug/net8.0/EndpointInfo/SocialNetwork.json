@@ -989,6 +989,18 @@
         }
       }
     },
+    "/api/Follows": {
+      "get": {
+        "tags": [
+          "Follows"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Friends": {
       "get": {
         "tags": [

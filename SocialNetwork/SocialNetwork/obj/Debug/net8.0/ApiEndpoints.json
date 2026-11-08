@@ -632,6 +632,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SocialNetwork.Controllers.Client.FollowsController",
+    "Method": "Get",
+    "RelativePath": "api/Follows",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SocialNetwork.Controllers.Client.FriendsController",
     "Method": "GetAll",
     "RelativePath": "api/Friends",
