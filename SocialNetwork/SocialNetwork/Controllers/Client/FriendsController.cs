@@ -56,6 +56,23 @@ namespace SocialNetwork.Controllers.Client
             return Ok(response);
         }
 
+        [HttpGet("of/{id}")]
+        public async Task<IActionResult> GetForUser(string id)
+        {
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser is null)
+                return Unauthorized();
+
+            var user = await _userService.GetByPublicIdAsync(id);
+            if (user is null || user.IsDeleted || !user.IsActive)
+                return NotFound();
+
+            return Ok(new
+            {
+                friendIds = await _friendshipService.GetFriendPublicIdsAsync(user.Id)
+            });
+        }
+
         [HttpGet("requests")]
         public async Task<IActionResult> GetIncoming()
         {

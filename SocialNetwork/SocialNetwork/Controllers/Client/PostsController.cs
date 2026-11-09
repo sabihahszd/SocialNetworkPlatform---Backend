@@ -274,12 +274,11 @@ namespace SocialNetwork.Controllers.Client
             var blockedIds = await GetBlockedIdsAsync(currentUser.Id);
             var friendIds = (await _friendshipService.GetFriendPublicIdsAsync(currentUser.Id))
                 .ToHashSet(StringComparer.OrdinalIgnoreCase);
-            var membership = new Dictionary<int, bool>();
             var results = new List<PostDto>();
 
             foreach (var post in posts)
             {
-                if (!await CanSeeAsync(post, currentUser, blockedIds, friendIds, membership))
+                if (!await CanSeeAsync(post, currentUser, blockedIds, friendIds))
                     continue;
 
                 if (friendsOnly && post.AuthorId != currentUser.Id && !await IsFriendAsync(post, currentUser.Id, friendIds))
@@ -304,7 +303,7 @@ namespace SocialNetwork.Controllers.Client
             var blockedIds = await GetBlockedIdsAsync(currentUser.Id);
             var friendIds = (await _friendshipService.GetFriendPublicIdsAsync(currentUser.Id))
                 .ToHashSet(StringComparer.OrdinalIgnoreCase);
-            if (!await CanSeeAsync(detailed, currentUser, blockedIds, friendIds, new Dictionary<int, bool>()))
+            if (!await CanSeeAsync(detailed, currentUser, blockedIds, friendIds))
                 return null;
 
             return detailed;
@@ -314,8 +313,7 @@ namespace SocialNetwork.Controllers.Client
             Post post,
             AppUser currentUser,
             IReadOnlySet<string> blockedIds,
-            IReadOnlySet<string> friendIds,
-            Dictionary<int, bool> membership)
+            IReadOnlySet<string> friendIds)
         {
             if (post.IsDeleted)
                 return false;
@@ -334,22 +332,7 @@ namespace SocialNetwork.Controllers.Client
             if (post.Privacy == PostPrivacy.Friends)
                 return await IsFriendAsync(post, currentUser.Id, friendIds);
 
-            if (post.Privacy != PostPrivacy.Communities)
-                return false;
-
-            foreach (var communityId in CommunityIds(post))
-            {
-                if (!membership.TryGetValue(communityId, out var isMember))
-                {
-                    isMember = await _communityMemberService.IsMemberAsync(communityId, currentUser.Id);
-                    membership[communityId] = isMember;
-                }
-
-                if (isMember || OwnsCommunity(post, communityId, currentUser.Id))
-                    return true;
-            }
-
-            return false;
+            return post.Privacy == PostPrivacy.Communities;
         }
 
         private async Task<bool> IsFriendAsync(Post post, int currentUserId, IReadOnlySet<string> friendIds)
@@ -528,28 +511,6 @@ namespace SocialNetwork.Controllers.Client
                 return null;
 
             return user;
-        }
-
-        private static IEnumerable<int> CommunityIds(Post post)
-        {
-            var ids = post.PostCommunities
-                .Where(link => !link.IsDeleted)
-                .Select(link => link.CommunityId)
-                .ToHashSet();
-
-            if (post.CommunityId is int communityId)
-                ids.Add(communityId);
-
-            return ids;
-        }
-
-        private static bool OwnsCommunity(Post post, int communityId, int userId)
-        {
-            if (post.CommunityId == communityId && post.Community?.OwnerId == userId)
-                return true;
-
-            return post.PostCommunities?.Any(link =>
-                !link.IsDeleted && link.CommunityId == communityId && link.Community?.OwnerId == userId) == true;
         }
 
         private static PostPrivacy ParsePrivacy(string? value)

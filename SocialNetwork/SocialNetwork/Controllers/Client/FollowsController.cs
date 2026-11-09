@@ -32,6 +32,24 @@ namespace SocialNetwork.Controllers.Client
             });
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetForUser(string id)
+        {
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser is null)
+                return Unauthorized();
+
+            var user = await _userService.GetByPublicIdAsync(id);
+            if (user is null || user.IsDeleted || !user.IsActive)
+                return NotFound();
+
+            return Ok(new
+            {
+                following = await _followService.GetFollowingPublicIdsAsync(user.Id),
+                followers = await _followService.GetFollowerPublicIdsAsync(user.Id)
+            });
+        }
+
         private async Task<AppUser?> GetCurrentUserAsync()
         {
             var publicId = User.FindFirstValue(ClaimTypes.NameIdentifier);

@@ -20,7 +20,6 @@ namespace SocialNetwork.Controllers.Client
         private readonly IPostService _postService;
         private readonly IAppUserService _userService;
         private readonly IFriendshipService _friendshipService;
-        private readonly ICommunityMemberService _communityMemberService;
         private readonly IValidator<CommentRequestDto> _commentValidator;
         private readonly IValidator<UpdateTextRequest> _textValidator;
 
@@ -29,7 +28,6 @@ namespace SocialNetwork.Controllers.Client
             IPostService postService,
             IAppUserService userService,
             IFriendshipService friendshipService,
-            ICommunityMemberService communityMemberService,
             IValidator<CommentRequestDto> commentValidator,
             IValidator<UpdateTextRequest> textValidator)
         {
@@ -37,7 +35,6 @@ namespace SocialNetwork.Controllers.Client
             _postService = postService;
             _userService = userService;
             _friendshipService = friendshipService;
-            _communityMemberService = communityMemberService;
             _commentValidator = commentValidator;
             _textValidator = textValidator;
         }
@@ -176,24 +173,7 @@ namespace SocialNetwork.Controllers.Client
                     || await _friendshipService.ExistsAsync(post.AuthorId, currentUser.Id);
             }
 
-            if (post.Privacy != PostPrivacy.Communities)
-                return false;
-
-            var communityIds = post.PostCommunities
-                .Where(link => !link.IsDeleted)
-                .Select(link => link.CommunityId)
-                .ToHashSet();
-
-            if (post.CommunityId is int communityId)
-                communityIds.Add(communityId);
-
-            foreach (var id in communityIds)
-            {
-                if (await _communityMemberService.IsMemberAsync(id, currentUser.Id))
-                    return true;
-            }
-
-            return false;
+            return post.Privacy == PostPrivacy.Communities;
         }
 
         private async Task<bool> WithinReplyDepthAsync(Comment parent)

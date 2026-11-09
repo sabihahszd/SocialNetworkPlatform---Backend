@@ -17,7 +17,6 @@ namespace SocialNetwork.Controllers.Client
         private readonly IReportService _reportService;
         private readonly IPostService _postService;
         private readonly IFriendshipService _friendshipService;
-        private readonly ICommunityMemberService _communityMemberService;
         private readonly IUserSettingsService _userSettingsService;
         private readonly IAppUserService _userService;
         private readonly IValidator<CreateReportRequest> _reportValidator;
@@ -26,7 +25,6 @@ namespace SocialNetwork.Controllers.Client
             IReportService reportService,
             IPostService postService,
             IFriendshipService friendshipService,
-            ICommunityMemberService communityMemberService,
             IUserSettingsService userSettingsService,
             IAppUserService userService,
             IValidator<CreateReportRequest> reportValidator)
@@ -34,7 +32,6 @@ namespace SocialNetwork.Controllers.Client
             _reportService = reportService;
             _postService = postService;
             _friendshipService = friendshipService;
-            _communityMemberService = communityMemberService;
             _userSettingsService = userSettingsService;
             _userService = userService;
             _reportValidator = reportValidator;
@@ -206,24 +203,7 @@ namespace SocialNetwork.Controllers.Client
                     || await _friendshipService.ExistsAsync(post.AuthorId, currentUser.Id);
             }
 
-            if (post.Privacy != PostPrivacy.Communities)
-                return false;
-
-            var communityIds = post.PostCommunities
-                .Where(link => !link.IsDeleted)
-                .Select(link => link.CommunityId)
-                .ToHashSet();
-
-            if (post.CommunityId is int communityId)
-                communityIds.Add(communityId);
-
-            foreach (var id in communityIds)
-            {
-                if (await _communityMemberService.IsMemberAsync(id, currentUser.Id))
-                    return true;
-            }
-
-            return false;
+            return post.Privacy == PostPrivacy.Communities;
         }
 
         private async Task<HashSet<string>> GetBlockedIdsAsync(int userId)
