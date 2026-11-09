@@ -15,5 +15,6 @@ namespace Domain.Entities
         public int AuthorId { get; set; }
         public AppUser Author { get; set; } = null!;
         public string Text { get; set; } = string.Empty;
+        public bool IsRead { get; set; }
     }
 }

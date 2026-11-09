@@ -10,6 +10,6 @@ namespace Repository.Repositories.Interfaces
     public interface IChatMessageRepository : IBaseRepository<ChatMessage>
     {
         Task<ChatMessage?> GetByPublicIdAsync(string publicId, int authorId);
-
+        Task MarkReceivedAsReadAsync(int threadId, int recipientId);
     }
 }

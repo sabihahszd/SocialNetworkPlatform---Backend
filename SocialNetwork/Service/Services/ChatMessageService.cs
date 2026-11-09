@@ -47,5 +47,10 @@ namespace Service.Services
         {
             return _chatMessageRepository.GetByPublicIdAsync(publicId, authorId);
         }
+
+        public Task MarkReceivedAsReadAsync(int threadId, int recipientId)
+        {
+            return _chatMessageRepository.MarkReceivedAsReadAsync(threadId, recipientId);
+        }
     }
 }

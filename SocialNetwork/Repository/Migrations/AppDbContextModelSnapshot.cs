@@ -102,7 +102,7 @@ namespace Repository.Migrations
                     b.HasIndex("Username")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Bookmark", b =>
@@ -135,7 +135,7 @@ namespace Repository.Migrations
                     b.HasIndex("PostId", "UserId")
                         .IsUnique();
 
-                    b.ToTable("Bookmarks");
+                    b.ToTable("Bookmarks", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.ChatMessage", b =>
@@ -153,6 +153,9 @@ namespace Repository.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
                     b.Property<string>("PublicId")
@@ -178,7 +181,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("ThreadId");
 
-                    b.ToTable("ChatMessage");
+                    b.ToTable("ChatMessage", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.ChatThread", b =>
@@ -218,7 +221,7 @@ namespace Repository.Migrations
                     b.HasIndex("UserAId", "UserBId")
                         .IsUnique();
 
-                    b.ToTable("ChatThread");
+                    b.ToTable("ChatThread", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Comment", b =>
@@ -266,7 +269,7 @@ namespace Repository.Migrations
                     b.HasIndex("PublicId")
                         .IsUnique();
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comment", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Community", b =>
@@ -323,7 +326,7 @@ namespace Repository.Migrations
                     b.HasIndex("PublicId")
                         .IsUnique();
 
-                    b.ToTable("Community");
+                    b.ToTable("Community", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.CommunityMember", b =>
@@ -356,7 +359,7 @@ namespace Repository.Migrations
                     b.HasIndex("CommunityId", "UserId")
                         .IsUnique();
 
-                    b.ToTable("CommunityMember");
+                    b.ToTable("CommunityMember", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Follow", b =>
@@ -389,7 +392,7 @@ namespace Repository.Migrations
                     b.HasIndex("FollowerId", "FollowingId")
                         .IsUnique();
 
-                    b.ToTable("Follow");
+                    b.ToTable("Follow", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.FriendRequest", b =>
@@ -425,7 +428,7 @@ namespace Repository.Migrations
                     b.HasIndex("FromUserId", "ToUserId")
                         .IsUnique();
 
-                    b.ToTable("FriendRequest");
+                    b.ToTable("FriendRequest", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Friendship", b =>
@@ -458,7 +461,7 @@ namespace Repository.Migrations
                     b.HasIndex("UserId", "FriendId")
                         .IsUnique();
 
-                    b.ToTable("Friendship");
+                    b.ToTable("Friendship", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Notification", b =>
@@ -513,7 +516,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("RecipientId");
 
-                    b.ToTable("Notification");
+                    b.ToTable("Notification", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Post", b =>
@@ -567,7 +570,7 @@ namespace Repository.Migrations
                     b.HasIndex("PublicId")
                         .IsUnique();
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.PostCommunity", b =>
@@ -600,7 +603,7 @@ namespace Repository.Migrations
                     b.HasIndex("PostId", "CommunityId")
                         .IsUnique();
 
-                    b.ToTable("PostCommunity");
+                    b.ToTable("PostCommunity", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.PostLike", b =>
@@ -633,7 +636,7 @@ namespace Repository.Migrations
                     b.HasIndex("PostId", "UserId")
                         .IsUnique();
 
-                    b.ToTable("PostLike");
+                    b.ToTable("PostLike", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Report", b =>
@@ -679,7 +682,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("ReporterId");
 
-                    b.ToTable("Report");
+                    b.ToTable("Report", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Repost", b =>
@@ -712,7 +715,7 @@ namespace Repository.Migrations
                     b.HasIndex("PostId", "UserId")
                         .IsUnique();
 
-                    b.ToTable("Repost");
+                    b.ToTable("Repost", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.SiteSettings", b =>
@@ -766,7 +769,7 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SiteSettings");
+                    b.ToTable("SiteSettings", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.UserSettings", b =>
@@ -832,7 +835,7 @@ namespace Repository.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UserSettings");
+                    b.ToTable("UserSettings", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Bookmark", b =>

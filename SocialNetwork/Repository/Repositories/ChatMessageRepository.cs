@@ -20,5 +20,15 @@ namespace Repository.Repositories
         {
             return DbSet.Include(message => message.Author).FirstOrDefaultAsync(message => message.PublicId == publicId && message.AuthorId == authorId);
         }
+
+        public Task MarkReceivedAsReadAsync(int threadId, int recipientId)
+        {
+            var now = DateTime.UtcNow;
+            return DbSet
+                .Where(message => message.ThreadId == threadId && message.AuthorId != recipientId && !message.IsDeleted && !message.IsRead)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(message => message.IsRead, true)
+                    .SetProperty(message => message.UpdatedAt, now));
+        }
     }
 }

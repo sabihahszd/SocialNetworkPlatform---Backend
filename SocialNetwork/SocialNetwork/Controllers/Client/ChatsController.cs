@@ -121,7 +121,7 @@ namespace SocialNetwork.Controllers.Client
             {
                 ThreadId = thread.PublicId,
                 ParticipantId = participant.PublicId,
-                Message = ToMessageDto(message, currentUser.PublicId)
+                Message = ToMessageDto(message, currentUser.PublicId, currentUser.Id)
             });
         }
 
@@ -143,7 +143,22 @@ namespace SocialNetwork.Controllers.Client
                 return NotFound();
 
             var message = await CreateMessageAsync(thread.Id, currentUser.Id, text);
-            return Ok(ToMessageDto(message, currentUser.PublicId));
+            return Ok(ToMessageDto(message, currentUser.PublicId, currentUser.Id));
+        }
+
+        [HttpPost("{id}/read")]
+        public async Task<IActionResult> MarkRead(string id)
+        {
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser is null)
+                return Unauthorized();
+
+            var thread = await GetMemberThreadAsync(id, currentUser.Id);
+            if (thread is null)
+                return NotFound();
+
+            await _chatMessageService.MarkReceivedAsReadAsync(thread.Id, currentUser.Id);
+            return NoContent();
         }
 
         [HttpPut("{id}/messages/{messageId}")]
@@ -165,7 +180,7 @@ namespace SocialNetwork.Controllers.Client
 
             message.Text = text;
             await _chatMessageService.EditAsync(message);
-            return Ok(ToMessageDto(message, currentUser.PublicId));
+            return Ok(ToMessageDto(message, currentUser.PublicId, currentUser.Id));
         }
 
         [HttpDelete("{id}/messages/{messageId}")]
@@ -255,19 +270,20 @@ namespace SocialNetwork.Controllers.Client
                 Messages = thread.Messages
                     .Where(message => !message.IsDeleted)
                     .OrderBy(message => message.CreatedAt)
-                    .Select(message => ToMessageDto(message, message.Author?.PublicId ?? string.Empty))
+                    .Select(message => ToMessageDto(message, message.Author?.PublicId ?? string.Empty, currentUserId))
                     .ToList()
             };
         }
 
-        private static ChatMessageDto ToMessageDto(ChatMessage message, string authorPublicId)
+        private static ChatMessageDto ToMessageDto(ChatMessage message, string authorPublicId, int currentUserId)
         {
             return new ChatMessageDto
             {
                 Id = message.PublicId,
                 AuthorId = message.Author?.PublicId ?? authorPublicId,
                 Text = message.Text,
-                CreatedAt = message.CreatedAt
+                CreatedAt = message.CreatedAt,
+                Read = message.AuthorId == currentUserId || message.IsRead
             };
         }
     }

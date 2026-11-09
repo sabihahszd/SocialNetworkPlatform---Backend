@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -43,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|c:\\users\\user\\desktop\\social network\\socialnetwork-backend\\socialnetwork\\socialnetwork\\controllers\\client\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB69B384-6AB8-A501-1DF7-953DF2E826DD}|SocialNetwork\\SocialNetwork.csproj|solutionrelative:socialnetwork\\controllers\\client\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Program.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Program.cs",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\appsettings.Development.json",
               "RelativeDocumentMoniker": "SocialNetwork\\appsettings.Development.json",
@@ -111,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\AuthController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\AuthController.cs",
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Admin\\AdminController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Admin\\AdminController.cs",
@@ -135,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "SiteController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\SiteController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\SiteController.cs",
@@ -159,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ReportsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\ReportsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\ReportsController.cs",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FriendsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\FriendsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\FriendsController.cs",
@@ -183,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CommunitiesController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\CommunitiesController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\CommunitiesController.cs",
@@ -195,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PostsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\PostsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\PostsController.cs",
@@ -219,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CommentsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\CommentsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\CommentsController.cs",
@@ -231,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "ChatsController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Social Network\\SocialNetwork-Backend\\SocialNetwork\\SocialNetwork\\Controllers\\Client\\ChatsController.cs",
               "RelativeDocumentMoniker": "SocialNetwork\\Controllers\\Client\\ChatsController.cs",
@@ -239,7 +239,8 @@
               "RelativeToolTip": "SocialNetwork\\Controllers\\Client\\ChatsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-02T14:57:47.719Z"
+              "WhenOpened": "2026-11-02T14:57:47.719Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",

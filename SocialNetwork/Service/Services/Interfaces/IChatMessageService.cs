@@ -11,5 +11,6 @@ namespace Service.Services.Interfaces
         Task<IEnumerable<ChatMessage>> GetAllAsync();
         Task SaveAsync();
         Task<ChatMessage?> GetByPublicIdAsync(string publicId, int authorId);
+        Task MarkReceivedAsReadAsync(int threadId, int recipientId);
     }
 }
