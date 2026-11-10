@@ -218,6 +218,7 @@ namespace SocialNetwork.Controllers.Client
                 NotificationType.FriendRequest => "friend-request",
                 NotificationType.Repost => "repost",
                 NotificationType.Community => "community",
+                NotificationType.Mention => "mention",
                 _ => "comment"
             };
         }

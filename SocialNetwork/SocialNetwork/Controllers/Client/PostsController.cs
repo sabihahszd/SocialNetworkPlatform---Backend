@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using Domain.Common;
 using Domain.Entities;
 using Domain.Enums;
@@ -152,6 +153,7 @@ namespace SocialNetwork.Controllers.Client
             };
 
             await _postService.CreateAsync(post);
+            await NotifyMentionsAsync(post, currentUser);
 
             foreach (var community in communities)
             {
@@ -194,6 +196,7 @@ namespace SocialNetwork.Controllers.Client
 
             post.Text = text;
             await _postService.EditAsync(post);
+            await NotifyMentionsAsync(post, currentUser);
 
             var detailed = await _postService.GetDetailedByIdAsync(post.Id);
             return Ok(ToDto(detailed ?? post));
@@ -455,6 +458,48 @@ namespace SocialNetwork.Controllers.Client
             }
 
             await _bookmarkService.DeleteAsync(existing);
+        }
+
+        private static readonly Regex MentionPattern = new(@"@([^\s@]{1,24})", RegexOptions.Compiled);
+
+        private async Task NotifyMentionsAsync(Post post, AppUser actor)
+        {
+            var names = MentionPattern.Matches(post.Text)
+                .Select(match => match.Groups[1].Value.TrimEnd('.', ',', '!', '?', ':', ';', ')'))
+                .Where(name => name.Length > 0)
+                .Distinct(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var name in names)
+            {
+                var matches = await _userService.SearchAsync(name);
+                var recipient = matches.FirstOrDefault(user =>
+                    !user.IsDeleted
+                    && user.IsActive
+                    && user.Id != actor.Id
+                    && string.Equals(user.Username, name, StringComparison.OrdinalIgnoreCase));
+                if (recipient is null)
+                    continue;
+
+                var existing = await _notificationService.GetForRecipientAsync(recipient.Id);
+                if (existing.Any(item => !item.IsDeleted && item.Type == NotificationType.Mention && item.ActorId == actor.Id && item.PostPublicId == post.PublicId))
+                    continue;
+
+                var detail = post.Text.Trim();
+                if (detail.Length > 180)
+                    detail = detail[..180];
+
+                await _notificationService.CreateAsync(new Notification
+                {
+                    PublicId = Guid.NewGuid().ToString(),
+                    RecipientId = recipient.Id,
+                    ActorId = actor.Id,
+                    Type = NotificationType.Mention,
+                    PostPublicId = post.PublicId,
+                    Detail = detail,
+                    IsRead = false,
+                    Status = RequestStatus.Done
+                });
+            }
         }
 
         private async Task NotifyAsync(Post post, AppUser actor, NotificationType type, Func<UserSettings?, bool> enabled)

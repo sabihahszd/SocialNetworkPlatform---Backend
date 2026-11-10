@@ -12,7 +12,8 @@ namespace Domain.Enums
         Comment = 1,
         FriendRequest = 2,
         Repost = 3,
-        Community = 4
+        Community = 4,
+        Mention = 5
     }
 }
 

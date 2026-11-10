@@ -26,6 +26,7 @@ namespace Repository.Repositories
             return DbSet.AsNoTracking().Include(item => item.Actor)
                            .Where(item => item.RecipientId == recipientId)
                            .OrderByDescending(item => item.CreatedAt)
+                           .ThenByDescending(item => item.Id)
                            .ToListAsync();
         }
 

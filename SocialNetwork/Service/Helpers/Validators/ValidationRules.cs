@@ -69,7 +69,7 @@ namespace Service.Helpers.Validators
         public static bool IsNotificationType(string? value)
         {
             var type = Trimmed(value).ToLowerInvariant();
-            return type is "like" or "comment" or "friend-request" or "repost" or "community";
+            return type is "like" or "comment" or "friend-request" or "repost" or "community" or "mention";
         }
 
         [GeneratedRegex("^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")]

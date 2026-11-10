@@ -20,6 +20,8 @@ namespace SocialNetwork.Controllers.Client
         private readonly IPostService _postService;
         private readonly IAppUserService _userService;
         private readonly IFriendshipService _friendshipService;
+        private readonly INotificationService _notificationService;
+        private readonly IUserSettingsService _userSettingsService;
         private readonly IValidator<CommentRequestDto> _commentValidator;
         private readonly IValidator<UpdateTextRequest> _textValidator;
 
@@ -28,6 +30,8 @@ namespace SocialNetwork.Controllers.Client
             IPostService postService,
             IAppUserService userService,
             IFriendshipService friendshipService,
+            INotificationService notificationService,
+            IUserSettingsService userSettingsService,
             IValidator<CommentRequestDto> commentValidator,
             IValidator<UpdateTextRequest> textValidator)
         {
@@ -35,6 +39,8 @@ namespace SocialNetwork.Controllers.Client
             _postService = postService;
             _userService = userService;
             _friendshipService = friendshipService;
+            _notificationService = notificationService;
+            _userSettingsService = userSettingsService;
             _commentValidator = commentValidator;
             _textValidator = textValidator;
         }
@@ -93,6 +99,7 @@ namespace SocialNetwork.Controllers.Client
             };
 
             await _commentService.CreateAsync(comment);
+            await NotifyPostAuthorAsync(post, currentUser, text);
             return Ok(ToDto(comment, currentUser));
         }
 
@@ -131,6 +138,32 @@ namespace SocialNetwork.Controllers.Client
 
             await _commentService.DeleteAsync(comment);
             return NoContent();
+        }
+
+        private async Task NotifyPostAuthorAsync(Post post, AppUser actor, string text)
+        {
+            if (post.AuthorId == actor.Id)
+                return;
+
+            var settings = await _userSettingsService.GetByUserIdAsync(post.AuthorId);
+            if (!(settings?.NotifyReplies ?? true))
+                return;
+
+            var detail = text.Trim();
+            if (detail.Length > 180)
+                detail = detail[..180];
+
+            await _notificationService.CreateAsync(new Notification
+            {
+                PublicId = Guid.NewGuid().ToString(),
+                RecipientId = post.AuthorId,
+                ActorId = actor.Id,
+                Type = NotificationType.Comment,
+                PostPublicId = post.PublicId,
+                Detail = detail,
+                IsRead = false,
+                Status = RequestStatus.Done
+            });
         }
 
         private async Task<AppUser?> GetCurrentUserAsync()
