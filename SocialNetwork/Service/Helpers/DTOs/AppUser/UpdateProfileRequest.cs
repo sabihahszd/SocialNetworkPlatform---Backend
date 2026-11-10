@@ -16,5 +16,6 @@ namespace Service.Helpers.DTOs.AppUser
         public string? Photo { get; set; }
         public string? Banner { get; set; }
         public string? Password { get; set; }
+        public string? CurrentPassword { get; set; }
     }
 }

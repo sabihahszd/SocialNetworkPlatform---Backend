@@ -29,8 +29,8 @@ namespace Service.Helpers.Validators
             RuleFor(request => request.Password)
                 .Must(password => !ValidationRules.IsBlank(password))
                 .WithMessage("Enter a password.")
-                .Must(password => ValidationRules.Trimmed(password).Length >= 6)
-                .WithMessage("Password must be at least 6 characters.");
+                .Must(ValidationRules.IsStrongPassword)
+                .WithMessage(ValidationRules.StrongPasswordMessage);
 
             RuleFor(request => request.ConfirmPassword)
                 .Must(confirm => !ValidationRules.IsBlank(confirm))

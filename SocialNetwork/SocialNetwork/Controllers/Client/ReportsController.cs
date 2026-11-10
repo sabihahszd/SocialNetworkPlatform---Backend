@@ -16,6 +16,7 @@ namespace SocialNetwork.Controllers.Client
     {
         private readonly IReportService _reportService;
         private readonly IPostService _postService;
+        private readonly ICommentService _commentService;
         private readonly IFriendshipService _friendshipService;
         private readonly IUserSettingsService _userSettingsService;
         private readonly IAppUserService _userService;
@@ -24,6 +25,7 @@ namespace SocialNetwork.Controllers.Client
         public ReportsController(
             IReportService reportService,
             IPostService postService,
+            ICommentService commentService,
             IFriendshipService friendshipService,
             IUserSettingsService userSettingsService,
             IAppUserService userService,
@@ -31,6 +33,7 @@ namespace SocialNetwork.Controllers.Client
         {
             _reportService = reportService;
             _postService = postService;
+            _commentService = commentService;
             _friendshipService = friendshipService;
             _userSettingsService = userSettingsService;
             _userService = userService;
@@ -87,8 +90,22 @@ namespace SocialNetwork.Controllers.Client
             if (post is null)
                 return NotFound();
 
-            if (post.AuthorId == currentUser.Id)
+            Comment? reportedComment = null;
+            if (!string.IsNullOrWhiteSpace(request.CommentId))
+            {
+                reportedComment = await _commentService.GetByPublicIdAsync(request.CommentId);
+                if (reportedComment is null || reportedComment.IsDeleted || reportedComment.PostId != post.Id)
+                    return NotFound();
+                if (reportedComment.AuthorId == currentUser.Id)
+                    return BadRequest(new { message = "You cannot report your own comment." });
+            }
+            else if (post.AuthorId == currentUser.Id)
+            {
                 return BadRequest(new { message = "You cannot report your own post." });
+            }
+
+            if (reportedComment is not null)
+                reason = $"{reason} — comment {reportedComment.PublicId}";
 
             if (await _reportService.HasOpenAsync(post.Id, currentUser.Id))
             {

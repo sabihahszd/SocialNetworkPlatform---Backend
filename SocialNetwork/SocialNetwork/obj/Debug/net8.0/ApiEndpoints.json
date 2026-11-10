@@ -648,32 +648,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SocialNetwork.Controllers.Client.FollowsController",
-    "Method": "Get",
-    "RelativePath": "api/Follows",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialNetwork.Controllers.Client.FollowsController",
-    "Method": "GetForUser",
-    "RelativePath": "api/Follows/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "SocialNetwork.Controllers.Client.FriendsController",
     "Method": "GetAll",
     "RelativePath": "api/Friends",

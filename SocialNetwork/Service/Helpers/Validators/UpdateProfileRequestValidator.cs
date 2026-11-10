@@ -32,8 +32,13 @@ namespace Service.Helpers.Validators
                 .WithMessage("Location can be up to 48 characters.");
 
             RuleFor(request => request.Password)
-                .Must(password => ValidationRules.IsBlank(password) || ValidationRules.Trimmed(password).Length >= 6)
-                .WithMessage("Password must be at least 6 characters.");
+                .Must(password => ValidationRules.IsBlank(password) || ValidationRules.IsStrongPassword(password))
+                .WithMessage(ValidationRules.StrongPasswordMessage);
+
+            RuleFor(request => request.CurrentPassword)
+                .Must(password => !ValidationRules.IsBlank(password))
+                .When(request => request.Username is not null || request.Email is not null || !ValidationRules.IsBlank(request.Password))
+                .WithMessage("Enter your current password.");
         }
     }
 }

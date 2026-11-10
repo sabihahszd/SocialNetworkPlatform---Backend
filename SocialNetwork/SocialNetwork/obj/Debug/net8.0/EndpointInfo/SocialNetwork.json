@@ -1011,40 +1011,6 @@
         }
       }
     },
-    "/api/Follows": {
-      "get": {
-        "tags": [
-          "Follows"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Follows/{id}": {
-      "get": {
-        "tags": [
-          "Follows"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Friends": {
       "get": {
         "tags": [

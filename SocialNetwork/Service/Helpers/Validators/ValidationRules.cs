@@ -7,7 +7,27 @@ namespace Service.Helpers.Validators
     {
         public static string Trimmed(string? value) => value?.Trim() ?? string.Empty;
 
+        public const string StrongPasswordMessage = "Use at least 8 characters, one capital letter, and one symbol.";
+
         public static bool IsBlank(string? value) => string.IsNullOrWhiteSpace(value);
+
+        public static bool IsStrongPassword(string? value)
+        {
+            if (string.IsNullOrEmpty(value) || value.Length < 8)
+                return false;
+
+            var hasCapital = false;
+            var hasSymbol = false;
+            foreach (var character in value)
+            {
+                if (char.IsUpper(character))
+                    hasCapital = true;
+                else if (!char.IsLetterOrDigit(character))
+                    hasSymbol = true;
+            }
+
+            return hasCapital && hasSymbol;
+        }
 
         public static bool Within(string? value, int max) => Trimmed(value).Length <= max;
 

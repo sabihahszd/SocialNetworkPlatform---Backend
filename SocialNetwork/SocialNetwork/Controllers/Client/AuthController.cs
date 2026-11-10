@@ -210,6 +210,12 @@ namespace SocialNetwork.Controllers.Client
             if (error is not null)
                 return BadRequest(new { message = error });
 
+            var changesSignIn = request.Username is not null
+                || request.Email is not null
+                || !string.IsNullOrWhiteSpace(request.Password);
+            if (changesSignIn && (string.IsNullOrWhiteSpace(request.CurrentPassword) || !VerifyPassword(request.CurrentPassword, user.PasswordHash)))
+                return BadRequest(new { message = "Current password is not right." });
+
             if (request.Name is not null)
                 user.Name = request.Name.Trim();
 
