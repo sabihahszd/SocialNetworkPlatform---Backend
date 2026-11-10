@@ -119,6 +119,9 @@ namespace SocialNetwork.Controllers.Client
             if (user is null || user.IsDeleted || !VerifyPassword(request.Password, user.PasswordHash))
                 return Unauthorized(new { message = "That email or password is not right." });
 
+            if (user.IsBanned)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is banned." });
+
             if (!user.IsActive)
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is suspended." });
 
@@ -136,6 +139,9 @@ namespace SocialNetwork.Controllers.Client
             var user = await _userService.GetByEmailAsync(email);
             if (user is null)
                 return BadRequest(new { message = "No account uses that email." });
+
+            if (user.IsBanned)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is banned." });
 
             if (!user.IsActive)
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account is suspended." });
@@ -379,7 +385,9 @@ namespace SocialNetwork.Controllers.Client
                 Banner = user.BannerUrl,
                 Tone = user.Tone,
                 Role = ToRole(user.Role),
-                Active = user.IsActive,
+                Active = user.IsActive && !user.IsBanned,
+                Banned = user.IsBanned,
+                SuspendedUntil = user.SuspendedUntil,
                 CreatedAt = user.CreatedAt
             };
         }

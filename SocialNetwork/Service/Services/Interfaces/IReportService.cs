@@ -15,6 +15,8 @@ namespace Service.Services.Interfaces
         Task<List<Report>> GetOpenAsync(int? reporterId = null);
         Task<List<Report>> GetOpenByPostIdAsync(int postId);
         Task<bool> HasOpenAsync(int postId, int reporterId);
+        Task<List<Report>> GetOpenByUserIdAsync(int userId);
+        Task<List<Report>> GetOpenByCommunityIdAsync(int communityId);
         Task<int> CountOpenAsync();
     }
 }

@@ -19,3 +19,6 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Service
 C:\Users\user\AppData\Local\Temp\gather-build-check\Service.deps.json
 C:\Users\user\AppData\Local\Temp\gather-build-check\Service.dll
 C:\Users\user\AppData\Local\Temp\gather-build-check\Service.pdb
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Service.deps.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Service.dll
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Service.pdb

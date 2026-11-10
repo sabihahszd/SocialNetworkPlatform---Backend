@@ -71,7 +71,17 @@ namespace SocialNetwork.Controllers.Admin
             if (access.Error is not null)
                 return access.Error;
 
-            var users = await _userService.GetAllAsync();
+            var users = (await _userService.GetAllAsync()).ToList();
+            foreach (var user in users)
+            {
+                if (user.IsBanned || user.IsDeleted || user.SuspendedUntil is not DateTime until || until > DateTime.UtcNow)
+                    continue;
+
+                user.IsActive = true;
+                user.SuspendedUntil = null;
+                await _userService.EditAsync(user);
+            }
+
             var term = q?.Trim();
             var response = users
                 .Where(user => !user.IsDeleted)
@@ -138,7 +148,21 @@ namespace SocialNetwork.Controllers.Admin
             if (IsProtected(access.User!, target))
                 return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account cannot be suspended here." });
 
-            target.IsActive = !target.IsActive;
+            if (target.IsBanned)
+                return BadRequest(new { message = "This account is banned." });
+
+            var suspended = !target.IsActive || (target.SuspendedUntil is DateTime until && until > DateTime.UtcNow);
+            if (suspended)
+            {
+                target.IsActive = true;
+                target.SuspendedUntil = null;
+            }
+            else
+            {
+                target.IsActive = false;
+                target.SuspendedUntil = DateTime.UtcNow.AddHours(24);
+            }
+
             await _userService.EditAsync(target);
             return Ok(ToUserDto(target));
         }
@@ -155,10 +179,13 @@ namespace SocialNetwork.Controllers.Admin
                 return NotFound();
 
             if (IsProtected(access.User!, target))
-                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account cannot be removed here." });
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "This account cannot be banned here." });
 
-            await _userService.DeleteAsync(target);
-            return NoContent();
+            target.IsBanned = true;
+            target.IsActive = false;
+            target.SuspendedUntil = null;
+            await _userService.EditAsync(target);
+            return Ok(ToUserDto(target));
         }
 
         [HttpGet("posts")]
@@ -242,10 +269,39 @@ namespace SocialNetwork.Controllers.Admin
             if (report is null || report.IsDeleted)
                 return NotFound();
 
-            if (report.Post is not null && !report.Post.IsDeleted)
-                await _postService.DeleteAsync(report.Post);
+            if (report.PostId is int postId)
+            {
+                if (report.Post is not null && !report.Post.IsDeleted)
+                    await _postService.DeleteAsync(report.Post);
+                await CloseOpenReportsAsync(postId, ReportStatus.Removed);
+            }
+            else if (report.ReportedUserId is int reportedUserId)
+            {
+                var target = report.ReportedUser ?? await _userService.GetByIdAsync(reportedUserId);
+                if (target is not null && !target.IsDeleted)
+                {
+                    if (IsProtected(access.User!, target))
+                        return BadRequest(new { message = "This account cannot be banned here." });
 
-            await CloseOpenReportsAsync(report.PostId, ReportStatus.Removed);
+                    target.IsBanned = true;
+                    target.IsActive = false;
+                    target.SuspendedUntil = null;
+                    await _userService.EditAsync(target);
+                }
+                await CloseOpenUserReportsAsync(reportedUserId);
+            }
+            else if (report.CommunityId is int communityId)
+            {
+                var community = report.Community ?? await _communityService.GetByIdAsync(communityId);
+                if (community is not null && !community.IsDeleted)
+                    await _communityService.DeleteAsync(community);
+                await CloseOpenCommunityReportsAsync(communityId);
+            }
+            else
+            {
+                report.Status = ReportStatus.Removed;
+                await _reportService.EditAsync(report);
+            }
 
             var updated = await _reportService.GetByPublicIdAsync(report.PublicId);
             return Ok(updated is null ? ToReportDto(report) : ToReportDto(updated));
@@ -341,6 +397,26 @@ namespace SocialNetwork.Controllers.Admin
             foreach (var openReport in openReports.Where(item => !item.IsDeleted))
             {
                 openReport.Status = status;
+                await _reportService.EditAsync(openReport);
+            }
+        }
+
+        private async Task CloseOpenUserReportsAsync(int userId)
+        {
+            var openReports = await _reportService.GetOpenByUserIdAsync(userId);
+            foreach (var openReport in openReports.Where(item => !item.IsDeleted))
+            {
+                openReport.Status = ReportStatus.Removed;
+                await _reportService.EditAsync(openReport);
+            }
+        }
+
+        private async Task CloseOpenCommunityReportsAsync(int communityId)
+        {
+            var openReports = await _reportService.GetOpenByCommunityIdAsync(communityId);
+            foreach (var openReport in openReports.Where(item => !item.IsDeleted))
+            {
+                openReport.Status = ReportStatus.Removed;
                 await _reportService.EditAsync(openReport);
             }
         }
@@ -518,7 +594,9 @@ namespace SocialNetwork.Controllers.Admin
                 Banner = user.BannerUrl,
                 Tone = user.Tone,
                 Role = ToRole(user.Role),
-                Active = user.IsActive
+                Active = user.IsActive && !user.IsBanned,
+                Banned = user.IsBanned,
+                SuspendedUntil = user.SuspendedUntil
             };
         }
 
@@ -548,7 +626,13 @@ namespace SocialNetwork.Controllers.Admin
             return new ReportDto
             {
                 Id = report.PublicId,
+                Kind = report.CommunityId is not null ? "community" : report.ReportedUserId is not null ? "user" : "post",
                 PostId = report.Post?.PublicId ?? string.Empty,
+                UserId = report.ReportedUser?.PublicId ?? string.Empty,
+                ReportedName = report.ReportedUser?.Name,
+                Username = report.ReportedUser?.Username,
+                CommunityId = report.Community?.PublicId ?? string.Empty,
+                CommunityName = report.Community?.Name,
                 ReporterId = report.Reporter?.PublicId ?? string.Empty,
                 Reason = report.Reason,
                 CreatedAt = report.CreatedAt,

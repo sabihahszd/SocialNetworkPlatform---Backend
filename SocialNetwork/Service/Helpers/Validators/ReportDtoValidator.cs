@@ -7,7 +7,6 @@ namespace Service.Helpers.Validators
         public ReportDtoValidator()
         {
             RuleFor(report => report.Id).NotEmpty();
-            RuleFor(report => report.PostId).NotEmpty();
             RuleFor(report => report.ReporterId).NotEmpty();
             RuleFor(report => report.Reason)
                 .Must(reason => ValidationRules.PresentWithin(reason, 400))

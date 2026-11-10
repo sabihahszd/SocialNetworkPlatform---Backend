@@ -20,6 +20,7 @@ namespace SocialNetwork.Controllers.Client
         private readonly IFriendshipService _friendshipService;
         private readonly IUserSettingsService _userSettingsService;
         private readonly IAppUserService _userService;
+        private readonly ICommunityService _communityService;
         private readonly IValidator<CreateReportRequest> _reportValidator;
 
         public ReportsController(
@@ -29,6 +30,7 @@ namespace SocialNetwork.Controllers.Client
             IFriendshipService friendshipService,
             IUserSettingsService userSettingsService,
             IAppUserService userService,
+            ICommunityService communityService,
             IValidator<CreateReportRequest> reportValidator)
         {
             _reportService = reportService;
@@ -37,6 +39,7 @@ namespace SocialNetwork.Controllers.Client
             _friendshipService = friendshipService;
             _userSettingsService = userSettingsService;
             _userService = userService;
+            _communityService = communityService;
             _reportValidator = reportValidator;
         }
 
@@ -86,7 +89,13 @@ namespace SocialNetwork.Controllers.Client
             if (extra.Length > 0)
                 reason = $"{reason} — {extra}";
 
-            var post = await GetVisiblePostAsync(request.PostId, currentUser);
+            if (!string.IsNullOrWhiteSpace(request.UserId))
+                return await CreateUserReportAsync(request.UserId, currentUser, reason);
+
+            if (!string.IsNullOrWhiteSpace(request.CommunityId))
+                return await CreateCommunityReportAsync(request.CommunityId, currentUser, reason);
+
+            var post = await GetVisiblePostAsync(request.PostId ?? string.Empty, currentUser);
             if (post is null)
                 return NotFound();
 
@@ -164,10 +173,18 @@ namespace SocialNetwork.Controllers.Client
             if (report is null || report.IsDeleted)
                 return NotFound();
 
-            if (report.Post is not null && !report.Post.IsDeleted)
+            if (report.PostId is int postId && report.Post is not null && !report.Post.IsDeleted)
                 await _postService.DeleteAsync(report.Post);
 
-            var openReports = await _reportService.GetOpenByPostIdAsync(report.PostId);
+            if (report.PostId is not int reportedPostId)
+            {
+                report.Status = ReportStatus.Removed;
+                await _reportService.EditAsync(report);
+                var closed = await _reportService.GetByPublicIdAsync(report.PublicId);
+                return Ok(closed is null ? ToDto(report) : ToDto(closed));
+            }
+
+            var openReports = await _reportService.GetOpenByPostIdAsync(reportedPostId);
             foreach (var openReport in openReports.Where(item => !item.IsDeleted))
             {
                 openReport.Status = ReportStatus.Removed;
@@ -263,12 +280,76 @@ namespace SocialNetwork.Controllers.Client
             return IsAdmin(currentUser) || report.ReporterId == currentUser.Id;
         }
 
+        private async Task<IActionResult> CreateUserReportAsync(string userId, AppUser currentUser, string reason)
+        {
+            var target = await _userService.GetByPublicIdAsync(userId);
+            if (target is null || target.IsDeleted)
+                return NotFound();
+            if (target.Id == currentUser.Id)
+                return BadRequest(new { message = "You cannot report your own account." });
+
+            var existing = (await _reportService.GetOpenByUserIdAsync(target.Id))
+                .FirstOrDefault(report => !report.IsDeleted && report.ReporterId == currentUser.Id);
+            if (existing is not null)
+            {
+                var saved = await _reportService.GetByPublicIdAsync(existing.PublicId);
+                return Ok(saved is null ? ToDto(existing) : ToDto(saved));
+            }
+
+            var report = new Report
+            {
+                PublicId = Guid.NewGuid().ToString(),
+                ReportedUserId = target.Id,
+                ReporterId = currentUser.Id,
+                Reason = reason,
+                Status = ReportStatus.Open
+            };
+            await _reportService.CreateAsync(report);
+            var created = await _reportService.GetByPublicIdAsync(report.PublicId);
+            return Ok(created is null ? ToDto(report) : ToDto(created));
+        }
+
+        private async Task<IActionResult> CreateCommunityReportAsync(string communityId, AppUser currentUser, string reason)
+        {
+            var community = await _communityService.GetByPublicIdAsync(communityId);
+            if (community is null || community.IsDeleted)
+                return NotFound();
+            if (community.OwnerId == currentUser.Id)
+                return BadRequest(new { message = "You cannot report your own community." });
+
+            var existing = (await _reportService.GetOpenByCommunityIdAsync(community.Id))
+                .FirstOrDefault(report => !report.IsDeleted && report.ReporterId == currentUser.Id);
+            if (existing is not null)
+            {
+                var saved = await _reportService.GetByPublicIdAsync(existing.PublicId);
+                return Ok(saved is null ? ToDto(existing) : ToDto(saved));
+            }
+
+            var report = new Report
+            {
+                PublicId = Guid.NewGuid().ToString(),
+                CommunityId = community.Id,
+                ReporterId = currentUser.Id,
+                Reason = reason,
+                Status = ReportStatus.Open
+            };
+            await _reportService.CreateAsync(report);
+            var created = await _reportService.GetByPublicIdAsync(report.PublicId);
+            return Ok(created is null ? ToDto(report) : ToDto(created));
+        }
+
         private static ReportDto ToDto(Report report)
         {
             return new ReportDto
             {
                 Id = report.PublicId,
+                Kind = report.CommunityId is not null ? "community" : report.ReportedUserId is not null ? "user" : "post",
                 PostId = report.Post?.PublicId ?? string.Empty,
+                UserId = report.ReportedUser?.PublicId ?? string.Empty,
+                ReportedName = report.ReportedUser?.Name,
+                Username = report.ReportedUser?.Username,
+                CommunityId = report.Community?.PublicId ?? string.Empty,
+                CommunityName = report.Community?.Name,
                 ReporterId = report.Reporter?.PublicId ?? string.Empty,
                 Reason = report.Reason,
                 CreatedAt = report.CreatedAt,
@@ -285,6 +366,7 @@ namespace SocialNetwork.Controllers.Client
             return new ReportDto
             {
                 Id = report.PublicId,
+                Kind = "post",
                 PostId = post.PublicId,
                 ReporterId = reporter.PublicId,
                 Reason = report.Reason,

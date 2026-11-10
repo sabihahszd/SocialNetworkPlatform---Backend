@@ -24,6 +24,8 @@ namespace Domain.Entities
         public UserRole Role { get; set; } = UserRole.Member;
         public string Tone { get; set; } = string.Empty;
         public bool IsActive { get; set; } = true;
+        public bool IsBanned { get; set; }
+        public DateTime? SuspendedUntil { get; set; }
 
         public UserSettings? Settings { get; set; }
         public ICollection<Post> Posts { get; set; } = new List<Post>();

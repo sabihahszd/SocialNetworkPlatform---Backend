@@ -48,6 +48,9 @@ namespace Repository.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -79,6 +82,9 @@ namespace Repository.Migrations
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("SuspendedUntil")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Tone")
                         .IsRequired()
@@ -614,13 +620,16 @@ namespace Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CommunityId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("PublicId")
@@ -630,6 +639,9 @@ namespace Repository.Migrations
                     b.Property<string>("Reason")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ReportedUserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ReporterId")
                         .HasColumnType("int");
@@ -642,10 +654,14 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CommunityId");
+
                     b.HasIndex("PostId");
 
                     b.HasIndex("PublicId")
                         .IsUnique();
+
+                    b.HasIndex("ReportedUserId");
 
                     b.HasIndex("ReporterId");
 
@@ -1033,11 +1049,20 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Domain.Entities.Report", b =>
                 {
+                    b.HasOne("Domain.Entities.Community", "Community")
+                        .WithMany()
+                        .HasForeignKey("CommunityId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Domain.Entities.Post", "Post")
                         .WithMany("Reports")
                         .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Domain.Entities.AppUser", "ReportedUser")
+                        .WithMany()
+                        .HasForeignKey("ReportedUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.Entities.AppUser", "Reporter")
                         .WithMany()
@@ -1045,7 +1070,11 @@ namespace Repository.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("Community");
+
                     b.Navigation("Post");
+
+                    b.Navigation("ReportedUser");
 
                     b.Navigation("Reporter");
                 });

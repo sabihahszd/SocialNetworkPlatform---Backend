@@ -25,7 +25,9 @@ namespace Repository.Repositories
         public Task<Report?> GetByPublicIdAsync(string publicId)
         {
             return DbSet.AsNoTracking()
-                            .Include(report => report.Post).ThenInclude(post => post.Author)
+                            .Include(report => report.Post).ThenInclude(post => post!.Author)
+                            .Include(report => report.ReportedUser)
+                            .Include(report => report.Community)
                             .Include(report => report.Reporter)
                             .FirstOrDefaultAsync(report => report.PublicId == publicId);
         }
@@ -33,7 +35,9 @@ namespace Repository.Repositories
         public Task<List<Report>> GetOpenAsync(int? reporterId = null)
         {
             var reports = DbSet.AsNoTracking()
-                            .Include(report => report.Post).ThenInclude(post => post.Author)
+                            .Include(report => report.Post).ThenInclude(post => post!.Author)
+                            .Include(report => report.ReportedUser)
+                            .Include(report => report.Community)
                             .Include(report => report.Reporter)
                             .Where(report => report.Status == ReportStatus.Open);
             if (reporterId is not null) reports = reports.Where(report => report.ReporterId == reporterId);
@@ -47,13 +51,25 @@ namespace Repository.Repositories
 
         public Task<Report?> GetOpenByPublicIdAsync(string publicId)
         {
-           return DbSet.Include(report => report.Post)
+            return DbSet.Include(report => report.Post)
+                           .Include(report => report.ReportedUser)
+                           .Include(report => report.Community)
                            .FirstOrDefaultAsync(report => report.PublicId == publicId && report.Status == ReportStatus.Open);
         }
 
         public Task<bool> HasOpenAsync(int postId, int reporterId)
         {
             return DbSet.AnyAsync(report => report.PostId == postId && report.ReporterId == reporterId && report.Status == ReportStatus.Open);
+        }
+
+        public Task<List<Report>> GetOpenByUserIdAsync(int userId)
+        {
+            return DbSet.Where(report => report.ReportedUserId == userId && report.Status == ReportStatus.Open).ToListAsync();
+        }
+
+        public Task<List<Report>> GetOpenByCommunityIdAsync(int communityId)
+        {
+            return DbSet.Where(report => report.CommunityId == communityId && report.Status == ReportStatus.Open).ToListAsync();
         }
     }
 }

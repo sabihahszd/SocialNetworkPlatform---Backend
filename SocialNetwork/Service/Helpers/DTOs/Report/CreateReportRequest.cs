@@ -8,8 +8,10 @@ namespace Service.Helpers.DTOs.Report
 {
     public class CreateReportRequest
     {
-        public string PostId { get; set; } = string.Empty;
+        public string? PostId { get; set; }
         public string? CommentId { get; set; }
+        public string? UserId { get; set; }
+        public string? CommunityId { get; set; }
         public string Reason { get; set; } = string.Empty;
         public string? Details { get; set; }
     }

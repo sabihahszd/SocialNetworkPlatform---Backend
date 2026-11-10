@@ -68,6 +68,16 @@ namespace Service.Services
             return _reportRepository.HasOpenAsync(postId, reporterId);
         }
 
+        public Task<List<Report>> GetOpenByUserIdAsync(int userId)
+        {
+            return _reportRepository.GetOpenByUserIdAsync(userId);
+        }
+
+        public Task<List<Report>> GetOpenByCommunityIdAsync(int communityId)
+        {
+            return _reportRepository.GetOpenByCommunityIdAsync(communityId);
+        }
+
         public Task<int> CountOpenAsync()
         {
             return _reportRepository.CountOpenAsync();

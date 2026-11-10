@@ -9,7 +9,13 @@ namespace Service.Helpers.DTOs.Report
     public class ReportDto
     {
         public string Id { get; set; } = string.Empty;
+        public string Kind { get; set; } = "post";
         public string PostId { get; set; } = string.Empty;
+        public string UserId { get; set; } = string.Empty;
+        public string? ReportedName { get; set; }
+        public string? Username { get; set; }
+        public string CommunityId { get; set; } = string.Empty;
+        public string? CommunityName { get; set; }
         public string ReporterId { get; set; } = string.Empty;
         public string Reason { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }

@@ -162,3 +162,11 @@ C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.deps.json
 C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.runtimeconfig.json
 C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.dll
 C:\Users\user\AppData\Local\Temp\gather-build-check\SocialNetwork.pdb
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\appsettings.Development.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\appsettings.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.staticwebassets.endpoints.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.exe
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.deps.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.runtimeconfig.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.dll
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\SocialNetwork.pdb

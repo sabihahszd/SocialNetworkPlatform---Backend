@@ -617,6 +617,22 @@
   },
   {
     "ContainingType": "SocialNetwork.Controllers.Client.CommunitiesController",
+    "Method": "Delete",
+    "RelativePath": "api/Communities/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.CommunitiesController",
     "Method": "ToggleJoin",
     "RelativePath": "api/Communities/{id}/join",
     "HttpMethod": "POST",

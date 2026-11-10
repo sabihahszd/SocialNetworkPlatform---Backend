@@ -987,6 +987,26 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Communities"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Communities/{id}/join": {
@@ -1883,6 +1903,18 @@
             "type": "string",
             "nullable": true
           },
+          "commentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "communityId": {
+            "type": "string",
+            "nullable": true
+          },
           "reason": {
             "type": "string",
             "nullable": true
@@ -2034,6 +2066,10 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentPassword": {
             "type": "string",
             "nullable": true
           }

@@ -67,19 +67,38 @@ namespace Service.Services
             return _userRepository.SaveAsync();
         }
 
-        public Task<AppUser?> GetByPublicIdAsync(string publicId)
+        public async Task<AppUser?> GetByPublicIdAsync(string publicId)
         {
-            return _userRepository.GetByPublicIdAsync(publicId);
+            var user = await _userRepository.GetByPublicIdAsync(publicId);
+            if (user is not null)
+                await ReleaseExpiredSuspensionAsync(user);
+            return user;
         }
 
-        public Task<AppUser?> FindByIdentityAsync(string identity)
+        public async Task<AppUser?> FindByIdentityAsync(string identity)
         {
-            return _userRepository.FindByIdentityAsync(identity);
+            var user = await _userRepository.FindByIdentityAsync(identity);
+            if (user is not null)
+                await ReleaseExpiredSuspensionAsync(user);
+            return user;
         }
 
-        public Task<AppUser?> GetByEmailAsync(string email)
+        public async Task<AppUser?> GetByEmailAsync(string email)
         {
-            return _userRepository.GetByEmailAsync(email);
+            var user = await _userRepository.GetByEmailAsync(email);
+            if (user is not null)
+                await ReleaseExpiredSuspensionAsync(user);
+            return user;
+        }
+
+        private async Task ReleaseExpiredSuspensionAsync(AppUser user)
+        {
+            if (user.IsBanned || user.IsDeleted || user.SuspendedUntil is not DateTime until || until > DateTime.UtcNow)
+                return;
+
+            user.IsActive = true;
+            user.SuspendedUntil = null;
+            await EditAsync(user);
         }
 
         public Task<bool> UsernameTakenAsync(string username, int? exceptId = null)

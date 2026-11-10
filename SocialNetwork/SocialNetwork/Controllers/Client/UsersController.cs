@@ -27,7 +27,7 @@ namespace SocialNetwork.Controllers.Client
 
             var users = await _userService.GetAllAsync();
             var response = users
-                .Where(user => !user.IsDeleted)
+                .Where(user => !user.IsDeleted && user.IsActive && !user.IsBanned)
                 .OrderBy(user => user.Name)
                 .Select(ToPublicUser)
                 .ToList();
@@ -66,7 +66,9 @@ namespace SocialNetwork.Controllers.Client
                     UserRole.Admin => "admin",
                     _ => "member"
                 },
-                Active = user.IsActive,
+                Active = user.IsActive && !user.IsBanned,
+                Banned = user.IsBanned,
+                SuspendedUntil = user.SuspendedUntil,
                 CreatedAt = user.CreatedAt
             };
         }

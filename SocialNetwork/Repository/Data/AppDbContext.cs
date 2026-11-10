@@ -211,6 +211,16 @@ namespace Repository.Data
                     .HasForeignKey(report => report.PostId)
                     .OnDelete(DeleteBehavior.Restrict);
 
+                entity.HasOne(report => report.ReportedUser)
+                    .WithMany()
+                    .HasForeignKey(report => report.ReportedUserId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(report => report.Community)
+                    .WithMany()
+                    .HasForeignKey(report => report.CommunityId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
                 entity.HasOne(report => report.Reporter)
                     .WithMany()
                     .HasForeignKey(report => report.ReporterId)

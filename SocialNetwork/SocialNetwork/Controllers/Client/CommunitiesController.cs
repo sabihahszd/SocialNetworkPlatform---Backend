@@ -162,6 +162,24 @@ namespace SocialNetwork.Controllers.Client
             return Ok(ToDto(detailed ?? community, currentUser.Id));
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var currentUser = await GetCurrentUserAsync();
+            if (currentUser is null)
+                return Unauthorized();
+
+            var community = await _communityService.GetTrackedByPublicIdAsync(id);
+            if (community is null || community.IsDeleted)
+                return NotFound();
+
+            if (community.OwnerId != currentUser.Id)
+                return StatusCode(StatusCodes.Status403Forbidden, new { message = "Only the community owner can delete this community." });
+
+            await _communityService.DeleteAsync(community);
+            return NoContent();
+        }
+
         private async Task AddMemberAsync(int communityId, int userId)
         {
             var membership = await _communityMemberService.FindAsync(communityId, userId);

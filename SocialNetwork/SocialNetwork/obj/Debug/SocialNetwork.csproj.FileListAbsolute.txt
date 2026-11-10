@@ -1,0 +1,32 @@
+C:\Users\user\AppData\Local\Temp\gather-ef-build\appsettings.Development.json
+C:\Users\user\AppData\Local\Temp\gather-ef-build\appsettings.json
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.staticwebassets.endpoints.json
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.exe
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.deps.json
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.runtimeconfig.json
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.dll
+C:\Users\user\AppData\Local\Temp\gather-ef-build\SocialNetwork.pdb
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\rpswa.dswa.cache.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.AssemblyInfo.cs
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.sourcelink.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\rjimswa.dswa.cache.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\rjsmrazor.dswa.cache.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\rjsmcshtml.dswa.cache.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\scopedcss\bundle\SocialNetwork.styles.css
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\staticwebassets.build.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\staticwebassets.build.json.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\staticwebassets.development.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\staticwebassets.build.endpoints.json
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\swae.build.ex.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNe.364C5A64.Up2Date
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.dll
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\refint\SocialNetwork.dll
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.pdb
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.genruntimeconfig.cache
+C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\SocialNetwork\obj\Debug\ref\SocialNetwork.dll

@@ -13,3 +13,6 @@ C:\Users\user\Desktop\Social Network\SocialNetwork-Backend\SocialNetwork\Domain\
 C:\Users\user\AppData\Local\Temp\gather-build-check\Domain.deps.json
 C:\Users\user\AppData\Local\Temp\gather-build-check\Domain.dll
 C:\Users\user\AppData\Local\Temp\gather-build-check\Domain.pdb
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Domain.deps.json
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Domain.dll
+C:\Users\user\AppData\Local\Temp\gather-community-delete-build\Domain.pdb

@@ -60,7 +60,8 @@ namespace Repository.Repositories
 
         public Task<bool> UsernameTakenAsync(string username, int? exceptId = null)
         {
-            return DbSet.AnyAsync(user => user.Username == username && user.Id != exceptId);
+            var key = username.Trim().ToLower();
+            return DbSet.AnyAsync(user => user.Username.ToLower() == key && user.Id != exceptId);
         }
     }
 }

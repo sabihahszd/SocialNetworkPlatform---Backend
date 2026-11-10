@@ -6,9 +6,9 @@ namespace Service.Helpers.Validators
     {
         public CreateReportRequestValidator()
         {
-            RuleFor(request => request.PostId)
-                .Must(id => !ValidationRules.IsBlank(id))
-                .WithMessage("Choose a post to report.");
+            RuleFor(request => request)
+                .Must(request => new[] { request.PostId, request.UserId, request.CommunityId }.Count(id => !ValidationRules.IsBlank(id)) == 1)
+                .WithMessage("Choose what to report.");
 
             RuleFor(request => request.Reason)
                 .Must(reason => !ValidationRules.IsBlank(reason))
