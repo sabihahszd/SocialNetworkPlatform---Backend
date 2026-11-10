@@ -469,6 +469,22 @@
   },
   {
     "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
+    "Method": "MarkRead",
+    "RelativePath": "api/Chats/{id}/read",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.ChatsController",
     "Method": "SendDirect",
     "RelativePath": "api/Chats/direct",
     "HttpMethod": "POST",
@@ -642,6 +658,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SocialNetwork.Controllers.Client.FollowsController",
+    "Method": "GetForUser",
+    "RelativePath": "api/Follows/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SocialNetwork.Controllers.Client.FriendsController",
     "Method": "GetAll",
     "RelativePath": "api/Friends",
@@ -661,6 +693,22 @@
     "Parameters": [
       {
         "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialNetwork.Controllers.Client.FriendsController",
+    "Method": "GetForUser",
+    "RelativePath": "api/Friends/of/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": true
       }

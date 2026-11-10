@@ -23,7 +23,6 @@ namespace Repository.Data
         public DbSet<PostCommunity> PostCommunities { get; set; }
         public DbSet<PostLike> PostLikes { get; set; }
         public DbSet<Report> Reports { get; set; }
-        public DbSet<Follow> Follows { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
         public DbSet<FriendRequest> FriendRequests { get; set; }
         public DbSet<ChatThread> ChatThreads { get; set; }
@@ -44,7 +43,6 @@ namespace Repository.Data
             modelBuilder.Entity<Comment>().ToTable("Comment");
             modelBuilder.Entity<Community>().ToTable("Community");
             modelBuilder.Entity<CommunityMember>().ToTable("CommunityMember");
-            modelBuilder.Entity<Follow>().ToTable("Follow");
             modelBuilder.Entity<FriendRequest>().ToTable("FriendRequest");
             modelBuilder.Entity<Friendship>().ToTable("Friendship");
             modelBuilder.Entity<Notification>().ToTable("Notification");
@@ -216,21 +214,6 @@ namespace Repository.Data
                 entity.HasOne(report => report.Reporter)
                     .WithMany()
                     .HasForeignKey(report => report.ReporterId)
-                    .OnDelete(DeleteBehavior.Restrict);
-            });
-
-            modelBuilder.Entity<Follow>(entity =>
-            {
-                entity.HasIndex(follow => new { follow.FollowerId, follow.FollowingId }).IsUnique();
-
-                entity.HasOne(follow => follow.Follower)
-                    .WithMany()
-                    .HasForeignKey(follow => follow.FollowerId)
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                entity.HasOne(follow => follow.Following)
-                    .WithMany()
-                    .HasForeignKey(follow => follow.FollowingId)
                     .OnDelete(DeleteBehavior.Restrict);
             });
 
